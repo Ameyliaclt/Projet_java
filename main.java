@@ -1,3 +1,14 @@
+public static Lieu_trsm[] Lieu_p(){
+    Lieu_trsm[1] l_p_m = new Lieu_trsm("Aquarium de Paris","5 Av. Albert de Mun, 75016 Paris","0145393000");
+    Lieu_trsm[2] l_p_c = new Lieu_trsm("Visite des catacombes de Paris","1 Av. du Colonel Henri Rol-Tanguy, 75014 Paris","0145430657");
+    Lieu_trsm[3] l_p_spa = new Lieu_trsm("Espace Détente","22 rue de magdebourg, 75016 Paris","0749619185");
+    Lieu_trsm[4] l_p_cm = new Lieu_trsm("Centre commercial Beaugrenelle","12 Rue Linois, 75015 Paris","0153952400");
+    Lieu_trsm[5] l_p_pa = new Lieu_trsm("Disneyland Paris","Bd de Parc, 77700 Coupvray","0969326066");
+    Lieu_trsm[6] l_p_rt = new Lieu_trsm("Madame Brasserie - Tour Eiffel","av. Gustave Eiffel, 75007 Paris","0183777778");
+    Lieu_trsm[7] l_p_aprt = new Lieu_trsm("Aéroport de Paris-Orly","94390 Orly","0170363950");
+    Lieu_trsm[8] l_p_gr = new Lieu_trsm("Gare Montparnasse","17 Bd de Vaugirard","3635");
+    Lieu_trsm[9] l_p_prt = new Lieu_trsm("SIXT|Location voiture gare Montparnasse","Gare face, Hall 2, Bd Pasteur voie 19, 75015 Paris","0170976111");
+}
 public static void main(String[] args){
-    Hotel h_p = new Hotel("France", "Paris", )
+    Hotel h_p = new Hotel("France", "Paris","127 Av. des Champs-Élysées, 75008 Paris","élégance","0145678926","elegance_paris@hotel.fr",Lieu_p());
 }
