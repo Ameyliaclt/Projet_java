@@ -9,7 +9,7 @@ public static Lieu_trsm[] Lieu_p(){
     lieux_pa[5] l_p_rt = new Lieu_trsm("Madame Brasserie - Tour Eiffel","av. Gustave Eiffel, 75007 Paris","0183777778");
     lieux_pa[6] l_p_aprt = new Lieu_trsm("Aéroport de Paris-Orly","94390 Orly","0170363950");
     lieux_pa[7] l_p_gr = new Lieu_trsm("Gare Montparnasse","17 Bd de Vaugirard","3635");
-    lieux_pa[8] l_p_prt = new Lieu_trsm("SIXT|Location voiture gare Montparnasse","Gare face, Hall 2, Bd Pasteur voie 19, 75015 Paris","0170976111");
+    lieux_pa[8] l_p_lcv = new Lieu_trsm("SIXT|Location voiture gare Montparnasse","Gare face, Hall 2, Bd Pasteur voie 19, 75015 Paris","0170976111");
 
     return lieux_pa;
 }
