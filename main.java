@@ -1,5 +1,5 @@
 public static Lieu_trsm[] Lieu_p(){
-    Lieu_trsm[] lieux_pa = new Lieu_trsm[10];
+    Lieu_trsm[] lieux_pa = new Lieu_trsm[9];
     
     lieux_pa[0] l_p_m = new Lieu_trsm("Aquarium de Paris","5 Av. Albert de Mun, 75016 Paris","0145393000");
     lieux_pa[1] l_p_c = new Lieu_trsm("Visite des catacombes de Paris","1 Av. du Colonel Henri Rol-Tanguy, 75014 Paris","0145430657");
