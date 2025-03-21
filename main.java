@@ -3,7 +3,7 @@ public static Lieu_trsm[] Lieu_p(){
     
     lieux_pa[0] l_p_m = new Lieu_trsm("Aquarium de Paris","5 Av. Albert de Mun, 75016 Paris","0145393000");
     lieux_pa[1] l_p_c = new Lieu_trsm("Visite des catacombes de Paris","1 Av. du Colonel Henri Rol-Tanguy, 75014 Paris","0145430657");
-    lieux_pa[2] l_p_spa = new Lieu_trsm("Espace Détente","22 rue de magdebourg, 75016 Paris","0749619185");
+    lieux_pa[2] l_p_d = new Lieu_trsm("Espace Détente","22 rue de magdebourg, 75016 Paris","0749619185");
     lieux_pa[3] l_p_cm = new Lieu_trsm("Centre commercial Beaugrenelle","12 Rue Linois, 75015 Paris","0153952400");
     lieux_pa[4] l_p_pa = new Lieu_trsm("Disneyland Paris","Bd de Parc, 77700 Coupvray","0969326066");
     lieux_pa[5] l_p_rt = new Lieu_trsm("Madame Brasserie - Tour Eiffel","av. Gustave Eiffel, 75007 Paris","0183777778");
