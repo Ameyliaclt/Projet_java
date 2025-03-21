@@ -9,6 +9,41 @@ public static Lieu_trsm[] Lieu_p(){
     Lieu_trsm[8] l_p_gr = new Lieu_trsm("Gare Montparnasse","17 Bd de Vaugirard","3635");
     Lieu_trsm[9] l_p_prt = new Lieu_trsm("SIXT|Location voiture gare Montparnasse","Gare face, Hall 2, Bd Pasteur voie 19, 75015 Paris","0170976111");
 }
+
+public static Lieu_trsm[] lieux_k(){
+    Lieu_trsm[] lieux_ky = new Lieu_trsm[10];
+    
+    lieux_ky[0] = new Lieu_trsm();
+    lieux_ky[1] = new Lieu_trsm();
+    lieux_ky[2] = new Lieu_trsm();
+    lieux_ky[3] = new Lieu_trsm();
+    lieux_ky[4] = new Lieu_trsm();
+    lieux_ky[5] = new Lieu_trsm();
+    lieux_ky[6] = new Lieu_trsm();
+    lieux_ky[7] = new Lieu_trsm();
+    lieux_ky[8] = new Lieu_trsm();
+    lieux_ky[9] = new Lieu_trsm();
+
+    return lieux_ky;
+}
+
+public static Lieu_trsm[] Lieux_r(){
+    Lieu_trsm[] lieux_re = new Lieu_trsm[10];
+
+    lieux_re[0] = new Lieu_trsm();
+    lieux_re[1] = new Lieu_trsm();
+    lieux_re[2] = new Lieu_trsm();
+    lieux_re[3] = new Lieu_trsm();
+    lieux_re[4] = new Lieu_trsm();
+    lieux_re[5] = new Lieu_trsm();
+    lieux_re[6] = new Lieu_trsm();
+    lieux_re[7] = new Lieu_trsm();
+    lieux_re[8] = new Lieu_trsm();
+    lieux_re[9] = new Lieu_trsm();
+
+    return lieux_re;
+}
+
 public static void main(String[] args){
     Hotel h_p = new Hotel("France", "Paris","127 Av. des Champs-Élysées, 75008 Paris","élégance","0145678926","elegance_paris@hotel.fr",Lieu_p());
 }
