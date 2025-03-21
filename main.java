@@ -46,4 +46,6 @@ public static Lieu_trsm[] Lieux_r(){
 
 public static void main(String[] args){
     Hotel h_p = new Hotel("France", "Paris","127 Av. des Champs-Élysées, 75008 Paris","élégance","0145678926","elegance_paris@hotel.fr",Lieu_p());
+    Hotel h_k = new Hotel("Japon", "Kyoto", "", "Atarashii Kyoto", "atarashiiKyoto@hotel.com", Lieux_k());
+    Hotel h_r = new Hotel("Islande", "Reykjavik", "", "", "", Lieux_r());
 }
