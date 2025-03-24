@@ -2,6 +2,8 @@ import java.util.*;
 import Image;
 
 public class Lieu_trsm {
+    String[] t_lieu = {"Musée", "Visite guidée", "Espace détente", "Zone commerciale", "Parc d'attraction", "Restaurant", "Location de voiture", "Aéroport", "Gare", "Port"};
+
     String nm_lt;
     String ad_lt;
     String contact;
