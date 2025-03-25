@@ -61,6 +61,22 @@ public static Lieu_trsm[] Lieu_m(){
     
     return lieux_ma;
 }
+public static Lieu_trsm[] Lieu_s(){
+    Lieu_trsm[] lieux_sn = new Lieu_trsm[10];
+    
+    lieux_sn[0] = new Lieu_trsm("Centre d’interprétation du Delta du Saloum de Toubacouta", "Toubakouta, Sénégal", "+221 33 945 86 28", 0);
+    lieux_sn[1] = new Lieu_trsm("", "", "", 1);
+    lieux_sn[2] = new Lieu_trsm("Ryad al Sultan Oriental Spa", "Rte de la Corniche O, Dakar, Sénégal", "+221 33 824 99 28", 2);
+    lieux_sn[3] = new Lieu_trsm("Centre commercial les 4 C", "Av. Malick Sy, Dakar 10000, Sénégal", "+221 77 444 14 75", 3);
+    lieux_sn[4] = new Lieu_trsm("Magic Land", "Route de la Corniche Ouest, Dakar, Sénégal", "+221 33 823 49 36", 4);
+    lieux_sn[5] = new Lieu_trsm("Restaurant La Terrasse", "Boulevard Martin Luther King, Rte de la Corniche O, Dakar 91 179, Sénégal", "+221 33 839 90 40", 5);
+    lieux_sn[6] = new Lieu_trsm("Sixt Sénégal", "269 rue LIB 02, Dakar 11 000, Sénégal", "+221 33 820 15 95", 6);
+    lieux_sn[7] = new Lieu_trsm("Aéroport de Dakar-Blaise Diagne", "Diass, Sénégal", "+221 33 939 69 00", 7);
+    lieux_sn[8] = new Lieu_trsm("Gare ferroviaire de Dakar", "Dakar, Sénégal", "", 8);
+    lieux_sn[9] = new Lieu_trsm("", "", "", 9);
+
+    return lieux_sn;
+}
 
 public static Lieu_trsm[] Lieux_r(){
     Lieu_trsm[] lieux_re = new Lieu_trsm[10];
@@ -84,7 +100,8 @@ public static void main(String[] args){
     Hotel h_k = new Hotel("Japon", "Kyoto", "Tatsumicho, Higashiyama Ward, Kyoto, 605-0862, Japon", "Atarashii Kyoto", "+81 75-551-4321", "atarashiiKyoto@hotel.com", Lieu_k());
     Hotel h_r = new Hotel("Islande", "Reykjavik", "Nautholsvégur 83, Reykjavik, Islande", "Fagun Reykjavik", "+354 710 9648", "fagunReykjavik@hotel.com", Lieu_r());
     Hotel h_b = new Hotel("Thailande","Bangkok", "PFWR+C85, Maha Rat Rd, Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200, Thaïlande","Wat Pho(วัดโพธิ์) Hotel","+66 89 057 7100","watpho_hotel@hotel.com",Lieu_b());
-    Hotel h_m = new Hotel("Maroc", "Marrakech", "Place Jemaa El Fna, Marrakech 40 000, Maroc", "Marrakech Palace", "+212 524-XX-XX-XX", "marrakech_palace@hotel.com", Lieu_m());
+    Hotel h_m = new Hotel("Maroc", "Marrakech", "Place Jemaa El Fna, Marrakech 40 000, Maroc", "Marrakech Palace", "+212 524 33 44 33", "marrakech_palace@hotel.com", Lieu_m());
+    Hotel h_s = new Hotel("Sénégal", "Somone", "Bp 8, Somone, Sénégal", "Royal Horizon Baobab", "+221 33 939 71 71", "", Lieu_s());
     //Chambres hotel h_p
     Chambre s_1p = new Chambre(101, 1, "Parisien", 120, 1);
     Chambre s_2p = new Chambre(102, 1, "Traditionel", 120, 1);
