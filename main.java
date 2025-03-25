@@ -45,6 +45,22 @@ public static Lieu_trsm[] lieux_k(){
 
     return lieux_ky;
 }
+public static Lieu_trsm[] Lieu_m(){
+    Lieu_trsm[] lieux_ma = new Lieu_trsm[10];
+    
+    lieux_ma[0] = new Lieu_trsm("Musée de Marrakech", "Place Ben Youssef, Marrakesh 40 000, Maroc", "", 0);
+    lieux_ma[1] = new Lieu_trsm("Mosquée Koutoubia", "Koutoubia Marrakech, Marrakech 40 000, Maroc", "", 1);
+    lieux_ma[2] = new Lieu_trsm("Elysa Center", "Las Torrres de Majorelle, av. Yacoub El Mansour, Marrakech 40 000, Maroc", "", 2);
+    lieux_ma[3] = new Lieu_trsm("Ménara Mall", "Bd Mohamed VI, Marrakech 40 000, Maroc", "", 3);
+    lieux_ma[4] = new Lieu_trsm("Gravity Park", "Bd de Casablanca, Marrakech 40 000, Maroc", "", 4);
+    lieux_ma[5] = new Lieu_trsm("Le Grand Bazar", "Place Jemaa El Fna, propriete Zanket El Guassabine, Marrakech 40 000, Maroc", "", 5);
+    lieux_ma[6] = new Lieu_trsm("Medloc Car Rental 4x4", "75 Rue Ibn Aincha, Marrakech 40 000, Maroc", "", 6);
+    lieux_ma[7] = new Lieu_trsm("Aéroport international Marrakech Ménara", "Marrakech 40 000, Maroc", "", 7);
+    lieux_ma[8] = new Lieu_trsm("Gare MARRAKECH", "Centre, Bd Mohamed VI, Marrakesh 40 100, Maroc", "", 8);
+    lieux_ma[9] = new Lieu_trsm("Port de Marrakech", "", "", 9);
+    
+    return lieux_ma;
+}
 
 public static Lieu_trsm[] Lieux_r(){
     Lieu_trsm[] lieux_re = new Lieu_trsm[10];
