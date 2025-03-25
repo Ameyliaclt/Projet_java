@@ -69,4 +69,11 @@ public static void main(String[] args){
     Hotel h_r = new Hotel("Islande", "Reykjavik", "Nautholsvégur 83, Reykjavik, Islande", "Fagun Reykjavik", "+354 710 9648", "fagunReykjavik@hotel.com", Lieu_r());
     Hotel h_b = new Hotel("Thailande","Bangkok", "PFWR+C85, Maha Rat Rd, Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200, Thaïlande","Wat Pho(วัดโพธิ์) Hotel","+66 89 057 7100","watpho_hotel@hotel.com",Lieu_b());
 
+    //Chambres hotel h_p
+    Chambre s_1p = new Chambre(101, 1, "Parisien", 120, 1);
+    Chambre s_2p = new Chambre(102, 1, "Traditionel", 120, 1);
+    Chambre s_3p = new Chambre(103, 1, "Moderne", 140, 1);
+    Chambre s_4p = new Chambre(104, 1, "Royal", 200, 1);
+    Chambre s_5p = new Chambre(105, 1, "Futuriste", 160, 1);
+    Chambre s_6p = new Chambre(106, 1, "Minimaliste", 110, 1);
 }
