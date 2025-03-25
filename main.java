@@ -76,4 +76,18 @@ public static void main(String[] args){
     Chambre s_4p = new Chambre(104, 1, "Royal", 200, 1);
     Chambre s_5p = new Chambre(105, 1, "Futuriste", 160, 1);
     Chambre s_6p = new Chambre(106, 1, "Minimaliste", 110, 1);
+    Chambre d_1p = new Chambre(201, 0, "romantique & parisien", 160, 2);
+    Chambre d_2p = new Chambre(202, 0, "Luxe", 170, 2);
+    Chambre d_3p = new Chambre(203, 0, "Bohème", 160, 2);
+    Chambre d_4p = new Chambre(204, 0, "Moderne & parisien", 160, 2);
+    Chambre d_5p = new Chambre(205, 0, "Moulin Rouge", 180, 2);
+    Chambre d_6p = new Chambre(206, 0, "Cabinet de curiosité", 170, 2);
+    Chambre su_1p = new Chambre(301, 2, "Monnet", 220, 3);
+    Chambre su_2p = new Chambre(302, 2, "Dior", 220, 3);
+    Chambre su_3p = new Chambre(401, 2, "Moderne & futuriste", 240, 4);
+    Chambre su_4p = new Chambre(402, 2, "Rococo", 240, 4);
+    Chambre suP_1p = new Chambre(501, 3, "Louvres", 1580, 5);
+    Chambre suP_2p = new Chambre(502, 3, "Luxe", 887, 5);
+    Chambre suP_3p = new Chambre(601, 3, "Traditionnel Français", 1380, 6);
+    Chambre suP_4p = new Chambre(602, 3, "Elysée", 1690, 6);
 }
