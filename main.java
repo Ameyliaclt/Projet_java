@@ -84,7 +84,7 @@ public static void main(String[] args){
     Hotel h_k = new Hotel("Japon", "Kyoto", "Tatsumicho, Higashiyama Ward, Kyoto, 605-0862, Japon", "Atarashii Kyoto", "+81 75-551-4321", "atarashiiKyoto@hotel.com", Lieu_k());
     Hotel h_r = new Hotel("Islande", "Reykjavik", "Nautholsvégur 83, Reykjavik, Islande", "Fagun Reykjavik", "+354 710 9648", "fagunReykjavik@hotel.com", Lieu_r());
     Hotel h_b = new Hotel("Thailande","Bangkok", "PFWR+C85, Maha Rat Rd, Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200, Thaïlande","Wat Pho(วัดโพธิ์) Hotel","+66 89 057 7100","watpho_hotel@hotel.com",Lieu_b());
-
+    Hotel h_m = new Hotel("Maroc", "Marrakech", "Place Jemaa El Fna, Marrakech 40 000, Maroc", "Marrakech Palace", "+212 524-XX-XX-XX", "marrakech_palace@hotel.com", Lieu_m());
     //Chambres hotel h_p
     Chambre s_1p = new Chambre(101, 1, "Parisien", 120, 1);
     Chambre s_2p = new Chambre(102, 1, "Traditionel", 120, 1);
