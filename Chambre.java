@@ -6,10 +6,11 @@ public class Chambre {
     String thm_ch;
     float prix_ch;
     int etage;
+    String[] tc = {"double","simple","st_nrml","st_pres"};
 
-    public Chambre (int nch,String tch, String tmch, float pch, int et){
+    public Chambre (int nch, int tch, String tmch, float pch, int et){
         nb_u = nch;
-        t_ch = tch;
+        t_ch = tc[tch];
         thm_ch = tmch;
         prix_ch = pch;
         etage = et;
