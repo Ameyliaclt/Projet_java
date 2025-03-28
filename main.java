@@ -80,16 +80,16 @@ public static Lieu_trsm[] Lieu_s(){
 public static Lieu_trsm[] Lieux_r(){
     Lieu_trsm[] lieux_re = new Lieu_trsm[10];
 
-    lieux_re[0] = new Lieu_trsm();
-    lieux_re[1] = new Lieu_trsm();
-    lieux_re[2] = new Lieu_trsm();
-    lieux_re[3] = new Lieu_trsm();
-    lieux_re[4] = new Lieu_trsm();
-    lieux_re[5] = new Lieu_trsm();
-    lieux_re[6] = new Lieu_trsm();
-    lieux_re[7] = new Lieu_trsm();
-    lieux_re[8] = new Lieu_trsm();
-    lieux_re[9] = new Lieu_trsm();
+    lieux_re[0] = new Lieu_trsm("Musée des Sagas", "Granddagadur 2, 101 Reykjavik, Islande", "+354 511 1517", 0);
+    lieux_re[1] = new Lieu_trsm("Northern Lights Bus", "Skogarhlid 10, 105 Reykjavik, Islande", "+354 539 3888", 1);
+    lieux_re[2] = new Lieu_trsm("Sky Lagoon", "Vesturvör 44-48, Kopavogur, Islande", "+354 527 6800", 2);
+    lieux_re[3] = new Lieu_trsm("Kringlan Mall", "Kringlan 4-12, 103 Reykjavik, Islande", "+354 517 9000", 3);
+    lieux_re[4] = new Lieu_trsm("Laugardalur", "Grandagardur 2, 101 Reykjavik, Islande", "+354 411 1111", 4);
+    lieux_re[5] = new Lieu_trsm("Kol Restaurant", "Skolavördustigur 40, 101 Reykjavik, Islande", "+354 517 7474", 5);
+    lieux_re[6] = new Lieu_trsm("Sixt Rent a car", "Krokhals 9, 110 Reykjavik, Islande", "+354 540 2222", 6);
+    lieux_re[7] = new Lieu_trsm("Aéroport de Reykjavik", "Vatnsmyri, 101 Reykjavik, Islande", "+354 424 4000", 7);
+    lieux_re[8] = new Lieu_trsm("Terminal Bus Reykjavik", "Skogarhlid 10, 105 Reykjavik, Islande", "+354 497 5000", 8);
+    lieux_re[9] = new Lieu_trsm("Skarfabakki Harbour", "544P+F35, 104 Reykjavik, Islande", "+354 525 8900", 9);
 
     return lieux_re;
 }
