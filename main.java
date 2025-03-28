@@ -101,7 +101,7 @@ public static void main(String[] args){
     Hotel h_b = new Hotel("Thailande","Bangkok", "PFWR+C85, Maha Rat Rd, Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200, Thaïlande","Wat Pho(วัดโพธิ์) Hotel","+66 89 057 7100","watpho_hotel@hotel.com",Lieu_b());
     Hotel h_m = new Hotel("Maroc", "Marrakech", "Place Jemaa El Fna, Marrakech 40 000, Maroc", "Marrakech Palace", "+212 524 33 44 33", "marrakech_palace@hotel.com", Lieu_m());
     Hotel h_s = new Hotel("Sénégal", "Dakar", "Bp 8, Somone, Sénégal", "Royal Horizon Baobab", "+221 33 939 71 71", "", Lieu_s());
-    //Chambres hotel h_p
+    //Chambres  h_p
     Chambre s_1p = new Chambre(101, 1, "Parisien", 120, 1);
     Chambre s_2p = new Chambre(102, 1, "Traditionel", 120, 1);
     Chambre s_3p = new Chambre(103, 1, "Moderne", 140, 1);
@@ -122,4 +122,25 @@ public static void main(String[] args){
     Chambre suP_2p = new Chambre(502, 3, "Luxe", 887, 5);
     Chambre suP_3p = new Chambre(601, 3, "Traditionnel Français", 1380, 6);
     Chambre suP_4p = new Chambre(602, 3, "Elysée", 1690, 6);
+    //Chambre h_t
+    Chambre s_1t = new Chambre(101, 1, "Traditionnel", 50, 1);
+    Chambre s_2t = new Chambre(102, 1, "Wan Makha Bucha", 100, 1);
+    Chambre s_3t = new Chambre(103, 1, "Wan Vaisakh Bucha", 120, 1);
+    Chambre s_4t = new Chambre(104, 1, "China Town", 130, 1);
+    Chambre s_5t = new Chambre(105, 1, "Tiger", 110, 1);
+    Chambre s_6t = new Chambre(106, 1, "Lotus", 120, 1);
+    Chambre d_1t = new Chambre(201, 0, "Traditionnel", 140, 2);
+    Chambre d_2t = new Chambre(202, 0, "Elephant", 180, 2);
+    Chambre d_3t = new Chambre(203, 0, "Street", 100, 2);
+    Chambre d_4t = new Chambre(204, 0, "Bo sang", 180, 2);
+    Chambre d_5t = new Chambre(205, 0, "Makha Bucha", 200, 2);
+    Chambre d_6t = new Chambre(206, 0, "Phi Ta Khon", 210, 2);
+    Chambre su_1t = new Chambre(301, 2, "Traditionnel", 1000, 3);
+    Chambre su_2t = new Chambre(303, 2, "Festival des lumières", 1500, 3);
+    Chambre su_3t = new Chambre(305, 2, "Pleine lune", 1250, 3);
+    Chambre su_4t = new Chambre(307, 2, "Lopburi", 1900, 3);
+    Chambre suP_1t = new Chambre(401, 3, "Orchidée", 2500, 4);
+    Chambre suP_2t = new Chambre(403, 3, "Or", 3000, 4);
+    Chambre suP_3t = new Chambre(406, 3, "Royal", 3200, 4);
+    Chambre suP_4t = new Chambre(409, 3, "Nouvelle an Chinois", 3000, 4);
 }
