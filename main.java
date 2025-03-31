@@ -165,4 +165,26 @@ public static void main(String[] args){
     Chambre suP_2k = new Chambre(402, 3, "Sushi", 1000, 4);
     Chambre suP_3k = new Chambre(403, 3, "Moderne", 1000, 4);
     Chambre suP_4k = new Chambre(404, 3, "Hanabi", 1000, 4);
+
+    //Chambre h_r
+    Chambre s_1r = new Chambre(101, 1, "Aurore", 100, 1);
+    Chambre s_2r = new Chambre(102, 1, "Lagoon", 100, 1);
+    Chambre s_3r = new Chambre(103, 1, "Viking", 100, 1);
+    Chambre s_4r = new Chambre(201, 1, "Traditionnelle", 100, 2);
+    Chambre s_5r = new Chambre(202, 1, "Igloo", 100, 2);
+    Chambre s_6r = new Chambre(203, 1, "Futuriste", 100, 2);
+    Chambre d_1r = new Chambre(104, 0, "Glaciers", 200, 1);
+    Chambre d_2r = new Chambre(105, 0, "Volcan", 200, 1);
+    Chambre d_3r = new Chambre(106, 0, "Montagnes", 200, 1);
+    Chambre d_4r = new Chambre(204, 0, "Ours polaire", 200, 2);
+    Chambre d_5r = new Chambre(205, 0, "Minimaliste", 200, 2);
+    Chambre d_6r = new Chambre(206, 0, "Basalte", 200, 2);
+    Chambre su_1r = new Chambre(301, 2, "Elixir", 500, 3);
+    Chambre su_2r = new Chambre(302, 2, "Cascade", 500, 3);
+    Chambre su_3r = new Chambre(303, 2, "Baleine", 500, 3);
+    Chambre su_4r = new Chambre(304, 2, "Marin", 500, 3);
+    Chambre suP_1r = new Chambre(401, 3, "Luxe", 1000, 4);
+    Chambre suP_2r = new Chambre(402, 3, "Impérial", 1000, 4);
+    Chambre suP_3r = new Chambre(403, 3, "Glace", 1000, 4);
+    Chambre suP_4r = new Chambre(404, 3, "Animalier", 1000, 4);
 }
