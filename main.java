@@ -190,6 +190,40 @@ public class Main {
         Chambre suP_2r = new Chambre(402, 3, "Impérial", 1000, 4);
         Chambre suP_3r = new Chambre(403, 3, "Glace", 1000, 4);
         Chambre suP_4r = new Chambre(404, 3, "Animalier", 1000, 4);
+
+        //Chambres h_m
+        Chambre s_1 = new Chambre(101, 1, "Sultane", 100, 1);
+        Chambre s_2 = new Chambre(102, 1, "Flouka", 100, 1);
+        Chambre s_3 = new Chambre(103, 1, "Zest", 100, 1);
+        Chambre s_4 = new Chambre(201, 1, "Babouche", 100, 2);
+        Chambre s_5 = new Chambre(202, 1, "Andalouse", 100, 2);
+        Chambre s_6 = new Chambre(203, 1, "Minaret", 100, 2);
+        Chambre d_1 = new Chambre(104, 0, "Henné", 200, 1);
+        Chambre d_2 = new Chambre(105, 0, "Jemaa el-Fna", 200, 1);
+        Chambre d_3 = new Chambre(106, 0, "Tajine", 200, 1);
+        Chambre d_4 = new Chambre(204, 0, "Ocre", 200, 2);
+        Chambre d_5 = new Chambre(205, 0, "Berbère", 200, 2);
+        Chambre d_6 = new Chambre(206, 0, "Atay", 200, 2);
+        Chambre su_1 = new Chambre(301, 2, "Olivier", 500, 3);
+        Chambre su_2 = new Chambre(302, 2, "Dattier", 500, 3);
+        Chambre su_3 = new Chambre(303, 2, "Souk des épices", 500, 3);
+        Chambre su_4 = new Chambre(304, 2, "Hammam", 500, 3);
+        Chambre suP_1 = new Chambre(401, 3, "Rêve Oriental", 1000, 4);
+        Chambre suP_2 = new Chambre(402, 3, "Oasis de Luxe", 1000, 4);
+        Chambre suP_3 = new Chambre(403, 3, "Riad Moderne", 1000, 4);
+        Chambre suP_4 = new Chambre(404, 3, "Atlas Majestueux", 1000, 4);
+
+
+        //Chambres h_s
+        Chambre su_1 = new Chambre(301, 2, "Lac Rose", 500, 3);
+        Chambre su_2 = new Chambre(302, 2, "Ngorong", 500, 3);
+        Chambre su_3 = new Chambre(303, 2, "Laobé", 500, 3);
+        Chambre su_4 = new Chambre(304, 2, "...", 500, 3);
+        Chambre suP_1 = new Chambre(401, 3, "Le Kente", 1000, 4);
+        Chambre suP_2 = new Chambre(402, 3, "Fruits Exotiques", 1000, 4);
+        Chambre suP_3 = new Chambre(403, 3, "Thème Océan", 1000, 4);
+        Chambre suP_4 = new Chambre(404, 3, "Thème Île", 1000, 4);
+
         
     	Model_prc m_prc = new Model_prc ("RedOne");
     	Vue_prc v_prc = new Vue_prc(m_prc);
