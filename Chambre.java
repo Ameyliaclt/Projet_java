@@ -1,4 +1,4 @@
-impot java.util.*;
+import java.util.*;
 
 public class Chambre {
     int nb_u; 
