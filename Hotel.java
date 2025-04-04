@@ -22,7 +22,7 @@ public class Hotel{
         piscine = false;
     }
 
-    public Hotel(String pays, String ville, String ad_p, nm, String num, String ad_m, Lieu_trsm[] prx, boolean pisc){
+    public Hotel(String pays, String ville, String ad_p, String nm, String num, String ad_m, Lieu_trsm[] prx, boolean pisc){
         pays_h = pays;
         ville_h = ville;
         ad_p_h = ad_p;
