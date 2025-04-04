@@ -18,7 +18,7 @@ public Vue_prc(Model_prc md){
 	lab = new JLabel();
 	this.getContentPane().add(lab);
 
-	ImageIcon icon = new ImageIcon("C://Users//ameyl//Desktop//POO projet//images//icone_site.png"); 
+	ImageIcon icon = new ImageIcon("image//icone_site.png"); 
 	Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 	JLabel iconLabel = new JLabel(new ImageIcon(image));
 	JLabel titre = new JLabel("RedOne");
