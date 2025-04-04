@@ -11,7 +11,7 @@ public class Hotel{
     boolean piscine;
     Lieu_trsm[] lieux_prx; 
 
-    public Hotel(String pays, String ville, String ad_p, nm, String num, String ad_m, Lieu_trsm[] prx){
+    public Hotel(String pays, String ville, String ad_p, String nm, String num, String ad_m, Lieu_trsm[] prx){
         pays_h = pays;
         ville_h = ville;
         ad_p_h = ad_p;
