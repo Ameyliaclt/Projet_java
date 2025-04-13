@@ -215,10 +215,22 @@ public class Main {
 
 
         //Chambres h_s
+        Chambre s_1 = new Chambre(101, 1, "Riz", 100, 1);
+        Chambre s_2 = new Chambre(102, 1, "Chocolat", 100, 1);
+        Chambre s_3 = new Chambre(103, 1, "Barque", 100, 1);
+        Chambre s_4 = new Chambre(201, 1, "Gaal", 100, 2);
+        Chambre s_5 = new Chambre(202, 1, "Instrument xalam", 100, 2);
+        Chambre s_6 = new Chambre(203, 1, "Cacao", 100, 2);
+        Chambre d_1 = new Chambre(104, 0, "Moustiquaire", 200, 1);
+        Chambre d_2 = new Chambre(105, 0, "Couleurs", 200, 1);
+        Chambre d_3 = new Chambre(106, 0, "Maison sénégalaise", 200, 1);
+        Chambre d_4 = new Chambre(204, 0, "Mosquée", 200, 2);
+        Chambre d_5 = new Chambre(205, 0, "Orange", 200, 2);
+        Chambre d_6 = new Chambre(206, 0, "Foot", 200, 2);
         Chambre su_1 = new Chambre(301, 2, "Lac Rose", 500, 3);
         Chambre su_2 = new Chambre(302, 2, "Ngorong", 500, 3);
         Chambre su_3 = new Chambre(303, 2, "Laobé", 500, 3);
-        Chambre su_4 = new Chambre(304, 2, "...", 500, 3);
+        Chambre su_4 = new Chambre(304, 2, "Tresse", 500, 3);
         Chambre suP_1 = new Chambre(401, 3, "Le Kente", 1000, 4);
         Chambre suP_2 = new Chambre(402, 3, "Fruits Exotiques", 1000, 4);
         Chambre suP_3 = new Chambre(403, 3, "Thème Océan", 1000, 4);
