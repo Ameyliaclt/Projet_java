@@ -201,7 +201,7 @@ public class Main {
         Chambre d_1 = new Chambre(104, 0, "Henné", 200, 1);
         Chambre d_2 = new Chambre(105, 0, "Jemaa el-Fna", 200, 1);
         Chambre d_3 = new Chambre(106, 0, "Tajine", 200, 1);
-        Chambre d_4 = new Chambre(204, 0, "Ocre", 200, 2);
+        Chambre d_4 = new Chambre(204, 0, "Argile", 200, 2);
         Chambre d_5 = new Chambre(205, 0, "Berbère", 200, 2);
         Chambre d_6 = new Chambre(206, 0, "Atay", 200, 2);
         Chambre su_1 = new Chambre(301, 2, "Olivier", 500, 3);
