@@ -1,5 +1,4 @@
 import java.util.*;
-import Lieu_trsm;
 
 public class Hotel{
     String pays_h;
