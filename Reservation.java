@@ -25,22 +25,12 @@ public class Reservation{
         statut_r = " ";
     }
 
-    Chambre rch_ch(){
-        Chambre ch;
-        return ch;
-    }
-
-    Hotel rch_h(String pays, String nom){
-        Hotel h;
-        return h;
-    }
-
     void add_r(Reservation r){
-        statut = stat[1];
+        statut_r = stat[1];
     }
 
     void rmv_r(Reservation r){
-        statut = stat[0];
+        statut_r = stat[0];
     }
 
     void modif_date_r(Reservation r, Date deb, Date fin){
