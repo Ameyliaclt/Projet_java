@@ -1,5 +1,4 @@
 import java.util.*;
-import Image;
 
 public class Lieu_trsm {
     String[] l_lieu = {"Musée", "Visite guidée", "Espace détente", "Zone commerciale", "Parc d'attraction", "Restaurant", "Location de voiture", "Aéroport", "Gare", "Port"};
@@ -14,8 +13,5 @@ public class Lieu_trsm {
         this.ad_lt = ad;
         this.contact = ct;
         this.t_lieu = l_lieu[type];
-    }
-
-    public <Image> afficher_map_i(){
     }
 }
