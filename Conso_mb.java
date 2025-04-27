@@ -1,19 +1,20 @@
 import java.util.*;
 
 public class Conso_mb{
-    String t_mb;
-    float prix_mb;
+	String t_mb;
+	float prix_mb;
 
- public Conso_mb(string t_mb , float prix_mb){
-    this.tm= t_mb; 
-    this.prix= prix_mb;
- }
+	public Conso_mb(String t , float prix){
+		t_mb = t; 
+		prix_mb = prix;
+ 	}
 
- String gett_mb (){
-    return t_mb;
- } 
- public float getprix_mb (){
-    return prix_mb;
+ 	public String getType (){ 
+    		return t_mb;
+ 	} 
 
- }
+ 	public float getPrix (){
+   		return prix_mb;
+
+ 	}
 }
