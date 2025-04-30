@@ -353,10 +353,19 @@ public class Main{
 		Color col_r = new Color(190,243,220);
 		Color col2_r = new Color(152,194,225);
 		Color col3_r = Color.WHITE;
+
+		//Création des éléments nécessaires pour la vue France. 
+		String path_fond_p = "Projet_poo_images//Fond_france.png";
+		String path_back_p = "Projet_poo_images//Fond_lys.png";
+		String path_photo_p = "Projet_poo_images//hotel_paris.png";
+		Color col_p = new Color(105,181,238);
+		Color col2_p = new Color(180,235,126);
+		Color col3_p = Color.WHITE;
 		
 		//Création des vues.
 		Vue_pays v_j = new Vue_pays(h_k, path_back_k, path_fond_k, path_photo_k, col_k, col2_k, col3_k);
 		Vue_pays v_i = new Vue_pays(h_r, path_back_r, path_fond_r, path_photo_r, col_r, col2_r, col3_r);
+		Vue_pays v_f = new Vue_pays(h_p, path_back_p, path_fond_p, path_photo_p, col_p, col2_p, col3_p);
 
 		//Création visuel vue Japon.
 		v_j.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
@@ -369,6 +378,12 @@ public class Main{
 		v_i.dispose();
 		v_i.setVisible(true);
 		v_i.pack();
+
+		//Création visuel vue France.
+		v_f.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
+		v_f.dispose();
+		v_f.setVisible(true);
+		v_f.pack();
     }
 }
 
