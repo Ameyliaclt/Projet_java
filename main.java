@@ -369,12 +369,30 @@ public class Main{
 		Color col_m = new Color(169,121,217);
 		Color col2_m = new Color(111,180,241);
 		Color col3_m = Color.WHITE;
+
+		//Création des éléments nécessaires pour la vue Thaïlande. 
+		String path_fond_b = "Projet_poo_images//Fond_thailande.png";
+		String path_back_b = "Projet_poo_images//Fond_lanternes.png";
+		String path_photo_b = "Projet_poo_images//hotel_piscine_thai.jpg";
+		Color col_b = new Color(162,240,233);
+		Color col2_b = new Color(249,222,142);
+		Color col3_b = Color.WHITE;
+
+		//Création des éléments nécessaires pour la vue Sénégal. 
+		String path_fond_d = "Projet_poo_images//Fond_senegal.png";
+		String path_back_d = "Projet_poo_images//Fond_baobab.png";
+		String path_photo_d = "Projet_poo_images//hotel_senegal.png";
+		Color col_d = new Color(215,107,100);
+		Color col2_d = new Color(215,107,100);
+		Color col3_d = Color.WHITE;
 		
 		//Création des vues.
 		Vue_pays v_j = new Vue_pays(h_k, path_back_k, path_fond_k, path_photo_k, col_k, col2_k, col3_k);
 		Vue_pays v_i = new Vue_pays(h_r, path_back_r, path_fond_r, path_photo_r, col_r, col2_r, col3_r);
 		Vue_pays v_f = new Vue_pays(h_p, path_back_p, path_fond_p, path_photo_p, col_p, col2_p, col3_p);
 		Vue_pays v_m = new Vue_pays(h_m, path_back_m, path_fond_m, path_photo_m, col_m, col2_m, col3_m);
+		Vue_pays v_t = new Vue_pays(h_b, path_back_b, path_fond_b, path_photo_b, col_b, col2_b, col3_b);
+		Vue_pays v_s = new Vue_pays(h_d, path_back_d, path_fond_d, path_photo_d, col_d, col2_d, col3_d);
 
 		//Création visuel vue Japon.
 		v_j.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
@@ -399,6 +417,17 @@ public class Main{
 		v_m.dispose();
 		v_m.setVisible(true);
 		v_m.pack();
+
+		//Création visuel vue Thaïlande.
+		v_t.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
+		v_t.dispose();
+		v_t.setVisible(true);
+		v_t.pack();
+
+		//Création visuel vue Sénégal.
+		v_s.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
+		v_s.dispose();
+		v_s.setVisible(true);
+		v_s.pack();
     }
 }
-
