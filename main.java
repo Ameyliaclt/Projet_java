@@ -361,11 +361,20 @@ public class Main{
 		Color col_p = new Color(105,181,238);
 		Color col2_p = new Color(180,235,126);
 		Color col3_p = Color.WHITE;
+
+		//Création des éléments nécessaires pour la vue Maroc. 
+		String path_fond_m = "Projet_poo_images//Fond_maroc.png";
+		String path_back_m = "Projet_poo_images//Fond_tajine.png";
+		String path_photo_m = "Projet_poo_images//hotel_maroc.png";
+		Color col_m = new Color(169,121,217);
+		Color col2_m = new Color(111,180,241);
+		Color col3_m = Color.WHITE;
 		
 		//Création des vues.
 		Vue_pays v_j = new Vue_pays(h_k, path_back_k, path_fond_k, path_photo_k, col_k, col2_k, col3_k);
 		Vue_pays v_i = new Vue_pays(h_r, path_back_r, path_fond_r, path_photo_r, col_r, col2_r, col3_r);
 		Vue_pays v_f = new Vue_pays(h_p, path_back_p, path_fond_p, path_photo_p, col_p, col2_p, col3_p);
+		Vue_pays v_m = new Vue_pays(h_m, path_back_m, path_fond_m, path_photo_m, col_m, col2_m, col3_m);
 
 		//Création visuel vue Japon.
 		v_j.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
@@ -384,6 +393,12 @@ public class Main{
 		v_f.dispose();
 		v_f.setVisible(true);
 		v_f.pack();
+
+		//Création visuel vue Maroc.
+		v_m.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
+		v_m.dispose();
+		v_m.setVisible(true);
+		v_m.pack();
     }
 }
 
