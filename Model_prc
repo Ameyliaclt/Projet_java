@@ -1,0 +1,55 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
+public class Model_prc {
+    String att;
+
+    public Model_prc(String v) {
+        att = v;
+    }
+
+    public String getAttribut() {
+        return att;
+    }
+
+private String titre;
+    private String imagePrincipale;
+    private List<Pays> paysList;
+
+    public Model_prc(String titre, String imagePrincipale, List<Pays> paysList) {
+        this.titre = titre;
+        this.imagePrincipale = imagePrincipale;
+        this.paysList = paysList;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public String getImagePrincipale() {
+        return imagePrincipale;
+    }
+
+    public List<Pays> getPaysList() {
+        return paysList;
+    }
+
+    public static class Pays {
+        private String nom;
+        private String image;
+
+        public Pays(String nom, String image) {
+            this.nom = nom;
+            this.image = image;
+        }
+
+        public String getNom() {
+            return nom;
+        }
+
+        public String getImage() {
+            return image;
+        }
+    }
+}
