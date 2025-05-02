@@ -1,0 +1,32 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.Arrays; // Assurez-vous d'importer Arrays
+
+public class MainContinent {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            // Création d'un modèle de test avec un seul attribut
+            Model_prc model = new Model_prc(
+                "Voyagez en Afrique",
+                "afrique.png",
+                Arrays.asList( // Utilisation correcte d'Arrays.asList
+                    new Model_prc.Pays("Maroc", "maroc.png"),
+                    new Model_prc.Pays("Senegal", "senegal.png")
+                )
+            );
+
+            // Création de la fenêtre principale
+            Continent fenetre = new Continent(model);
+
+            // Obtenir la taille de l'écran
+            Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+            int largeur = (int) dim.getWidth();
+            int hauteur = (int) dim.getHeight();
+
+            // Définir la taille de la fenêtre à la taille de l'écran (ou autre)
+            fenetre.setSize(largeur, hauteur);
+            fenetre.setLocationRelativeTo(null); // Centrer la fenêtre
+            fenetre.setVisible(true); // Afficher la fenêtre
+        });
+    }
+}
