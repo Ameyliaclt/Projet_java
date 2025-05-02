@@ -236,11 +236,68 @@ private void afficherContinent(Model_prc model) {
         pBottom.add(p);
     }
 
+ 
     JPanel mainPanel = new JPanel(new BorderLayout());
     mainPanel.add(bandeau, BorderLayout.NORTH);
     mainPanel.add(pBottom, BorderLayout.CENTER);
 
-    getContentPane().add(mainPanel);
+// Mentions légales
+JPanel mt_legl = new JPanel(new GridLayout(4, 4));
+mt_legl.setBackground(Color.LIGHT_GRAY);
+
+ImageIcon icon_mt = new ImageIcon("icone_site.png");
+Image image_mt = icon_mt.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+JLabel iconLabel_mt = new JLabel(new ImageIcon(image_mt));
+JLabel texte_ml_1 = new JLabel("RoomBloom");
+JLabel texte_ml_2 = new JLabel("97 rue George Leclerc");
+JLabel texte_ml_3 = new JLabel("33800 Bordeaux");
+JLabel texte_ml_4 = new JLabel("Accueil");
+JLabel texte_ml_5 = new JLabel("En savoir plus");
+JLabel texte_ml_6 = new JLabel("Où voyager ?");
+JLabel texte_ml_7 = new JLabel("Voyager en Europe");
+JLabel texte_ml_8 = new JLabel("Voyager en Asie");
+JLabel texte_ml_9 = new JLabel("Voyager en Afrique");
+JLabel texte_ml_10 = new JLabel("Nous contacter");
+JLabel texte_ml_11 = new JLabel("Instagram : @RoomBloom_fr");
+JLabel texte_ml_12 = new JLabel("Facebook : @RoomBloom_fr");
+JLabel texte_ml_13 = new JLabel("X : @RoomBloom_fr");
+
+mt_legl.add(new JLabel(" "));
+mt_legl.add(texte_ml_1);
+mt_legl.add(texte_ml_4);
+mt_legl.add(texte_ml_6);
+mt_legl.add(texte_ml_10);
+
+mt_legl.add(new JLabel(" "));
+mt_legl.add(texte_ml_2);
+mt_legl.add(texte_ml_5);
+mt_legl.add(texte_ml_7);
+mt_legl.add(texte_ml_11);
+
+mt_legl.add(iconLabel_mt);
+mt_legl.add(texte_ml_3);
+mt_legl.add(new JLabel(" "));
+mt_legl.add(texte_ml_8);
+mt_legl.add(texte_ml_12);
+
+mt_legl.add(new JLabel(" "));
+mt_legl.add(new JLabel(" "));
+mt_legl.add(new JLabel(" "));
+mt_legl.add(texte_ml_9);
+mt_legl.add(texte_ml_13);
+
+
+mainPanel.add(mt_legl, BorderLayout.SOUTH);
+
+  
+    JScrollPane scrollPane = new JScrollPane(mainPanel);
+    scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+    scrollPane.setPreferredSize(new Dimension(1350, 768));
+    scrollPane.getVerticalScrollBar().setUnitIncrement(12);
+
+
+    setContentPane(scrollPane);
     revalidate();
     repaint();
 }
