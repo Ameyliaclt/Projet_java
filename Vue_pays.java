@@ -27,7 +27,7 @@ public class Vue_pays extends JFrame{
 			}
 		}
 	}; //Panel pour le contenu.
-	JPanel p3 = new JPanel(); //Panel Hôtel.
+	JPanel p3 = new RoundedPanel(20); //Panel Hôtel.
 	JPanel p4 = new JPanel();
 
 	JLabel n_pays; //Label pour le texte de l'entête.
@@ -63,11 +63,13 @@ public class Vue_pays extends JFrame{
 	JPanel mt_legl = new JPanel();
 
 	Hotel ho;
+	Pays pa;
 
-	public Vue_pays(Hotel h1, String way_back, String way_fond, String way_photo, Color colo, Color colo2, Color colo3){
+	public Vue_pays(Hotel h1, Pays p){
 		//Grand titre de la fenêtre.
 		super(h1.pays_h);
 		ho = h1;
+		pa = p;
 
 		//Stockage des dimensions de l'écran.
 		Dimension t_scr = Toolkit.getDefaultToolkit().getScreenSize();
@@ -141,12 +143,12 @@ public class Vue_pays extends JFrame{
 		
 		main.setLayout(new BorderLayout());
 		p1.setLayout(new BorderLayout());
-		p1.setBorder(BorderFactory.createLineBorder(colo, 2));
-		p1.setBackground(colo);
+		p1.setBorder(BorderFactory.createLineBorder(p.col, 2));
+		p1.setBackground(p.col);
 
 		//Création de l'image de fond du panel d'entête. 
 		try{
-			fond = ImageIO.read(new File(way_fond));
+			fond = ImageIO.read(new File(p.path_fond));
 		}
 		catch(IOException ex){
 			ex.printStackTrace();
@@ -158,7 +160,7 @@ public class Vue_pays extends JFrame{
 		
 		//Création du texte de l'entête.
 		n_pays = new JLabel(""+title(),SwingConstants.CENTER);
-		n_pays.setForeground(colo3);
+		n_pays.setForeground(p.col3);
 		n_pays.setFont(new Font("Georgia", Font.BOLD, 40));
 		n_pays.setHorizontalAlignment(SwingConstants.CENTER);
 		n_pays.setVerticalAlignment(SwingConstants.CENTER);
@@ -173,7 +175,7 @@ public class Vue_pays extends JFrame{
 
 		//Création de l'image du panel du contenu.
 		try{
-			back = ImageIO.read(new File(way_back));
+			back = ImageIO.read(new File(p.path_back));
 			
 		}
 		catch(IOException ex){
@@ -189,11 +191,11 @@ public class Vue_pays extends JFrame{
 	
 		int w = (int)((double)(t_scr.getHeight()*0.3+t_scr.getWidth()*0.5));
 		int h = (int)((double)t_scr.getHeight()*0.3);
-		p3.setBorder(new RoundBorder(20,colo2));
+		p3.setBorder(new RoundBorder(20,p.col2));
 		
 		//Création de l'image de l'hôtel.
 		try{
-			photo = ImageIO.read(new File(way_photo));
+			photo = ImageIO.read(new File(p.path_photo));
 			double width = (double)t_scr.getHeight()*0.3;
 			photo1 = photo.getScaledInstance((int)width,(int)width,Image.SCALE_SMOOTH);
 		}
@@ -282,7 +284,7 @@ public class Vue_pays extends JFrame{
 
 		mt_legl.add(texte_ml_9);
 		mt_legl.add(texte_ml_13);
-		mt_legl.setBackground(new Color(240, 240, 240));
+		mt_legl.setBackground(Color.LIGHT_GRAY);
 
 		main.add(mt_legl, BorderLayout.SOUTH);
 		//Création de la scrollPane. 
