@@ -338,61 +338,21 @@ public class Main{
 		Hotel h_m = new Hotel("Maroc", "Marrakech", "Place Jemaa El Fna, Marrakech 40 000, Maroc", "Marrakech Palace", "+212 524 33 44 33", "marrakech_palace@hotel.com", lieux_ma);	
 		Hotel h_d = new Hotel("Sénégal", "Dakar", "Bp 8, Somone, Sénégal", "Royal Horizon Baobab", "+221 33 939 71 71", "royal_horizon_baobab@hotel.com", lieux_da);
 	
-		//Création des éléments nécessaires pour la vue Japon.
-		String path_fond_k = "Projet_poo_images//Fond_japon.png";
-		String path_back_k = "Projet_poo_images//Sakura_back.jpg";
-		String path_photo_k = "Projet_poo_images//Hotel_Kyoto_3.jpg";
-		Color col_k = Color.PINK;
-		Color col2_k = new Color(244,204,231);
-		Color col3_k = new Color(232,100,134);
-
-		//Création des éléments nécessaires pour la vue Islande. 
-		String path_fond_r = "Projet_poo_images//Fond_islande.png";
-		String path_back_r = "Projet_poo_images//Glacon_fond.png";
-		String path_photo_r = "Projet_poo_images//Hotel_Reykjavik.jpg";
-		Color col_r = new Color(190,243,220);
-		Color col2_r = new Color(152,194,225);
-		Color col3_r = Color.WHITE;
-
-		//Création des éléments nécessaires pour la vue France. 
-		String path_fond_p = "Projet_poo_images//Fond_france.png";
-		String path_back_p = "Projet_poo_images//Fond_lys.png";
-		String path_photo_p = "Projet_poo_images//hotel_paris.png";
-		Color col_p = new Color(105,181,238);
-		Color col2_p = new Color(180,235,126);
-		Color col3_p = Color.WHITE;
-
-		//Création des éléments nécessaires pour la vue Maroc. 
-		String path_fond_m = "Projet_poo_images//Fond_maroc.png";
-		String path_back_m = "Projet_poo_images//Fond_tajine.png";
-		String path_photo_m = "Projet_poo_images//hotel_maroc.png";
-		Color col_m = new Color(169,121,217);
-		Color col2_m = new Color(111,180,241);
-		Color col3_m = Color.WHITE;
-
-		//Création des éléments nécessaires pour la vue Thaïlande. 
-		String path_fond_b = "Projet_poo_images//Fond_thailande.png";
-		String path_back_b = "Projet_poo_images//Fond_lanternes.png";
-		String path_photo_b = "Projet_poo_images//hotel_piscine_thai.jpg";
-		Color col_b = new Color(162,240,233);
-		Color col2_b = new Color(249,222,142);
-		Color col3_b = Color.WHITE;
-
-		//Création des éléments nécessaires pour la vue Sénégal. 
-		String path_fond_d = "Projet_poo_images//Fond_senegal.png";
-		String path_back_d = "Projet_poo_images//Fond_baobab.png";
-		String path_photo_d = "Projet_poo_images//hotel_senegal.png";
-		Color col_d = new Color(215,107,100);
-		Color col2_d = new Color(215,107,100);
-		Color col3_d = Color.WHITE;
+		//Création des models nécessaires pour les vues.
+		Pays japon = new Pays("Projet_poo_images//Fond_japon.png", "Projet_poo_images//Sakura_back.jpg", "Projet_poo_images//Hotel_Kyoto_3.jpg", Color.PINK, new Color(244,204,231), new Color(232,100,134));
+		Pays islande = new Pays("Projet_poo_images//Fond_islande.png", "Projet_poo_images//Glacon_fond.png", "Projet_poo_images//Hotel_Reykjavik.jpg", new Color(190,243,220), new Color(152,194,225), Color.WHITE);
+		Pays france = new Pays("Projet_poo_images//Fond_france.png", "Projet_poo_images//Fond_lys.png", "Projet_poo_images//hotel_paris.jpg", new Color(105,181,238), new Color(180,235,126), Color.WHITE);
+		Pays maroc = new Pays("Projet_poo_images//Fond_maroc.png", "Projet_poo_images//Fond_tajine.png", "Projet_poo_images//hotel_maroc.png", new Color(169,121,217), new Color(111,180,241), Color.WHITE);
+		Pays thailande = new Pays("Projet_poo_images//Fond_thailande.png", "Projet_poo_images//Fond_lanternes.png", "Projet_poo_images//hotel_piscine_thai.jpg", new Color(162,240,233), new Color(249,222,142), Color.WHITE);
+		Pays senegal = new Pays("Projet_poo_images//Fond_senegal.png", "Projet_poo_images//Fond_baobab.png", "Projet_poo_images//hotel_senegal.png", new Color(215,107,100), new Color(215,107,100), Color.WHITE);
 		
 		//Création des vues.
-		Vue_pays v_j = new Vue_pays(h_k, path_back_k, path_fond_k, path_photo_k, col_k, col2_k, col3_k);
-		Vue_pays v_i = new Vue_pays(h_r, path_back_r, path_fond_r, path_photo_r, col_r, col2_r, col3_r);
-		Vue_pays v_f = new Vue_pays(h_p, path_back_p, path_fond_p, path_photo_p, col_p, col2_p, col3_p);
-		Vue_pays v_m = new Vue_pays(h_m, path_back_m, path_fond_m, path_photo_m, col_m, col2_m, col3_m);
-		Vue_pays v_t = new Vue_pays(h_b, path_back_b, path_fond_b, path_photo_b, col_b, col2_b, col3_b);
-		Vue_pays v_s = new Vue_pays(h_d, path_back_d, path_fond_d, path_photo_d, col_d, col2_d, col3_d);
+		Vue_pays v_j = new Vue_pays(h_k, japon);
+		Vue_pays v_i = new Vue_pays(h_r, islande);
+		Vue_pays v_f = new Vue_pays(h_p, france);
+		Vue_pays v_m = new Vue_pays(h_m, maroc);
+		Vue_pays v_t = new Vue_pays(h_b, thailande);
+		Vue_pays v_s = new Vue_pays(h_d, senegal);
 
 		//Création visuel vue Japon.
 		v_j.setPreferredSize(new Dimension((int)t_ecran.getWidth(), (int)((double)t_ecran.getHeight()*0.95)));
