@@ -1,0 +1,16 @@
+public class Model_prc {
+
+    public Model_prc() {
+        
+    }
+
+    
+    public boolean checkLogin(String email, String password) {
+        return true;
+    }
+
+   
+    public boolean registerUser(String nom, String prenom, String phone, String email, String password) {
+        return true;
+    }
+}
