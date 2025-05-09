@@ -1,11 +1,9 @@
 import java.awt.*;
+import java.util.stream.Stream;
 
 public class Main_prjt{
 	public static void main(String[]args){
-		//page principale
-		Model_prjt m_1 = new Model_prjt ("RoomBloom");
-		Vue_prcp vue_principale = new Vue_prcp(m_1);
-		
+		Model_prjt m_1 = new Model_prjt ("RoomBloom");	
 		//vue hotel 
 		//hotel japon
 		Lieu_trsm[] lieu_ky = new Lieu_trsm[10];
@@ -22,13 +20,12 @@ public class Main_prjt{
 		lieu_ky[9] = new Lieu_trsm("Ferry Miyazaki", "3-7 Shinko-cho, Chuo-ku, Kobe-shi, Hyogo, 650-0041, Japon", "+81 78-321-2244",9);
     
 		Hotel hotel_japon = new Hotel("Japon", "Kyoto", "Tatsumicho, Higashiyama Ward, Kyoto, 605-0862, Japon", "Atarashii Kyoto", "+81 75-551-4321", "atarashiiKyoto@hotel.com", lieu_ky);
-		String entete_jap = "images//Hotel_Kyoto.png";
 		String[] chambre_jap = {"Automne_Kyoto_Double.png", "Caligraphie_kyoto_Suite_2.png","CarpeKoi_Kyoto_Simple.png","Cyberpunk_Kyoto_Double.png","Dragon_Kyoto_Simple.png","Futuriste_Kyoto_Simple.png","Ghibli_Kyoto_Simple.png","Hanabi_Kyoto_Suitep_4.png","Hanami_Kyoto_Suite_1.png","Luxe_Kyoto_Suitep.png","Lycoris_Kyoto_Double.png","Minimalisme_Kyoto_Double.png","Moderne_Kyoto_Suitep_1.png","Mystique_Kyoto_Suite_1.png","Ninja_Kyoto_Double.png","Pokemon_Kyoto_Double.png","Samurai_Kyoto_Suite_2.png","Sushi_Kyoto_Suitep_1.png","Tradition_printemps_Kyoto_Simple.png","Traditionnelle_Kyoto_Simple.png"};
 		String[] type_chambre_jap ={"Chambre double","Suite","Chambre simple","Chambre double","Chambre Simple","Chambre simple","Chambre simple","Suite présidentielle","Suite","Suite présidentielle","Chambre double","Chambre double","Suite présidentielle","Suite","Chambre double","Chambre double","Suite","Suite présidentielle","Chambre simple","Chambre simple"};
 		String[] theme_chambre_jap ={"sur le thème de l'automne","sur le thème de la caligraphie japonaise","sur le thème de la carpekoi","sur le thème de Cyberpunk","sur le thème des dragons","futuriste","sur le thème de Ghibli","sur le thèmes des hanabi","sur le thèmes des hanabi","de luxe","sur le thème du Lycoris japonais","minimaliste","moderne","mystique","sur le thème des ninja","sur le thème de pokémon","sur le thème des samouraï","sur le thème des sushis","printanière","traditionnelle"};
 		String[] theme_filtre_jap ={"Culture","Culture","Culture","Aimer des touristes","Aimer des touristes","Moderne","Aimer des touristes","Culture","Luxe","Luxe","Culture","Moderne","Moderne","Culture","Culture","Aimer des touristes","Culture","Aimer des touristes","Aimer des touristes","Culture"};
-		Color jap_b = new Color(255,236,253);
-		Vue_hotel hotel_jap = new Vue_hotel(hotel_japon,entete_jap,chambre_jap,type_chambre_jap,theme_chambre_jap,jap_b,theme_filtre_jap);
+		Hotel_model japon = new Hotel_model("images//photo_entete_jap.png",chambre_jap,type_chambre_jap,theme_chambre_jap,new Color(255,236,253),theme_filtre_jap);
+		Vue_hotel hotel_jap = new Vue_hotel(hotel_japon,japon);
 		
 		//hotel thailande
 		Lieu_trsm[] lieux_ba = new Lieu_trsm[10];
@@ -45,13 +42,12 @@ public class Main_prjt{
         lieux_ba[9] = new Lieu_trsm("Drive Car Rental - Suvarnabhumi Airport","Suvarnabhumi Airport,, Arrival Hall, 999 Moo 1, Nong Prue,, Bang Phli District, Samut Prakan 10540, Thaïlande","+66847004376",9);
 		
 		Hotel hotel_thailande = new Hotel("Thailande","Bangkok", "PFWR+C85, Maha Rat Rd, Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200, Thaïlande","Wat Pho Hotel","+66 89 057 7100","watpho_hotel@hotel.com",lieux_ba);
-		String entete_thai = "images//hotel_thai_entete.png";
 		String[] chambre_thai ={"d_1t.png","s_1t.png","s_2t.png","suP_3t.png","su_1t.png","s_3t.png","d_3t.png","d_2t.png","suP_1t.png","suP_2t.png","d_5t.png","s_4t.png","d_4t.png","su_2t.png","s_5t.png","suP_4t.png","su_3t.png","d_6t.png","su_4t.png","s_6t.png"};
 		String[] type_chambre_thai = {"Chambre double","Chambre simple","Chambre simple","Suite présidentielle","Suite","Chambre simple","Chambre double","Chambre double","Suite présidentielle","Suite présidentielle","Chambre double","Chambre simple","Chambre double","Suite","Chambre simple","Suite présidentielle","Suite","Chambre double","Suite","Chambre simple"};
 		String[] theme_chambre_thai = {"traditionnel","traditionnel","sur le thème de Wan Makha Bucha","Royal","Traditionnel","sur le thème Wan Vaisakh Bucha","sur le thème des rues thailandaises","sur le thème des éléphants","sur le thème des orchidées","dorée à l'Or pur","sur le thème Makha Bucha","sur le thème China town","sur le thème de Bo sang","sur le thème du festival des lumières","sur le thème des tigres","du nouvelle an Chinois","sur le thème de la pleine lune","sur le thème de Phi Ta Khon","sur le thème de Lopburi","sur le thème de la fleur de lotus"};
 		String[] theme_filtre_thai = {"Culture","Culture","Culture","Luxe","Culture","Aimer des touristes","Aimer des touristes","Culture","Aimer des touristes","Luxe","Culture","Luxe","Culture","Moderne","Moderne","Culture","Culture","Moderne"};
-		Color thai_b = new Color(200,173,127);
-		Vue_hotel hotel_thai = new Vue_hotel(hotel_thailande,entete_thai,chambre_thai,type_chambre_thai,theme_chambre_thai, thai_b,theme_filtre_thai);
+		Hotel_model thailande = new Hotel_model("images//photo_entete_thai.png",chambre_thai,type_chambre_thai,theme_chambre_thai,new Color(200,173,127),theme_filtre_thai);
+		Vue_hotel hotel_thai = new Vue_hotel(hotel_thailande, thailande);
 		
 		//hotel France 
 		Lieu_trsm[] lieu_pa = new Lieu_trsm[9];
@@ -67,13 +63,12 @@ public class Main_prjt{
         lieu_pa[8] = new Lieu_trsm("SIXT|Location voiture gare Montparnasse","Gare face, Hall 2, Bd Pasteur voie 19, 75015 Paris","0170976111",8);
 		
 		Hotel hotel_france = new Hotel("France", "Paris","127 Av. des Champs-Élysées, 75008 Paris","Elégance","0145678926","elegance_paris@hotel.fr",lieu_pa);
-		String entete_fr = "images//hotel_paris.png";
 		String[] chambre_paris = {"chambre_double_boheme_paris.png","chambre_simple_futuriste_paris.png","chambre_double_romantiqueparisien_paris.png","suite_pres_louvres_paris.png","suite_monnet_paris.png","suite_dior_paris.png","chambre_simple_traditionnel_paris.png","chambre_double_moderneparisien_paris.png","chambre_simple_royal_paris.png","chambre_simple_parisien_paris.png","suite_pres_traditionnelfrancais_paris.png","chambre_double_moulinrouge_paris.png","chambre_simple_moderne_paris.png","suite_rococo_paris.png","chambre_double_cabinetdecuriosite_paris.png","suite_pres_luxe_paris.png","chambre_simple_minimaliste_paris.png","suite_modernefuturiste_paris.png","suite_pres_elysee_paris.png","chambre_double_luxe_paris.png"};
 		String[] type_chambre_paris = {"Chambre double","Chambre simple","Chambre double","Suite présidentielle","Suite","Suite","Chambre simple","Chambre double","Chambre simple","Chambre simple","Suite présidentielle","Chambre double","Chambre simple","Suite","Chambre double","Suite présidentielle","Chambre simple","Suite","Suite présidentielle","Chambre double"};
 		String[] theme_chambre_paris = {"bohème","futuriste","romantique","sur le thème du Louvres","sur le thème de Monnet","sur le thème de Dior","traditionnel","moderne","royal","parisien","traditionnel","sur le thème du moulin rouge","moderne","rococo","sur le thème cabinet de curiosité","de luxe","minimaliste","moderne/futuriste","sur le thème de l'élysée","de luxe"};
 		String[] theme_filtre_paris = {"Aimer des touristes","moderne","Aimer des touristes","Culture","Culture","Culture","Culture","Moderne","Luxe","Culture","Luxe","Culture","Moderne","Aimer des touristes","Aimer des touristes","Luxe","Moderne","Moderne","Luxe","Luxe"};
-		Color paris_b = new Color(239,231,219);
-		Vue_hotel hotel_prs = new Vue_hotel(hotel_france,entete_fr,chambre_paris,type_chambre_paris,theme_chambre_paris, paris_b,theme_filtre_paris);
+		Hotel_model paris = new Hotel_model("images//photo_entete_paris.png",chambre_paris,type_chambre_paris,theme_chambre_paris,new Color(239,231,219),theme_filtre_paris);
+		Vue_hotel hotel_prs = new Vue_hotel(hotel_france,paris);
 		
 		//hotel islande
 		 Lieu_trsm[] lieux_re = new Lieu_trsm[10];
@@ -90,13 +85,12 @@ public class Main_prjt{
         lieux_re[9] = new Lieu_trsm("Skarfabakki Harbour", "544P+F35, 104 Reykjavik, Islande", "+354 525 8900", 9);
 		
 		Hotel hotel_islande = new Hotel("Islande", "Reykjavik", "Nautholsvégur 83, Reykjavik, Islande", "Fagun Reykjavik", "+354 710 9648", "fagunReykjavik@hotel.com", lieux_re);
-		String entete_isl = "images//Hotel_Reykjavik_e.png";
 		String[] chambre_isl = {"Aurore_Reykjavik_Simple.png","Baleine_Reykjavik_Suite_1.png","Basalte_Reykjavik_Double.png","Cascade_Reykjavik_Suite_1.png","Futuriste_Reykjavik_Simple.png","Glace_futur_Reykjavik_Suitep.png","Glaciers_Reykjavik_Double.png","Igloo_Reykjavik_Simple.png","Imperial_Reykjavik_Suitep.png","Lagoon_Reykjavik_Simple.png","Luxe_Reykjavik_Suitep.png","Minimaliste_Reykjavik_Double.png","Montagnes_Reykjavik_Double.png","Marin_Reykjavik_Suite_2.png","Nature_Reykjavik_Suitep_1.png","Ours_Polaire_Reykjavik_Double.png","Traditionnel_Reykjavik_Simple.png","Viking_Reykjavik_Simple.png","Volcan_Reykjavik_Double.png","Alcool_Reykjavik_Suite.png"};
 		String[] type_chambre_isl = {"Chambre simple","Suite","Chambre double","Suite","Chambre simple","Suite présidentielle","Chambre double","Chambre simple","Suite présidentielle","Chambre simple","Suite présidentielle","Chambre double","Chambre double","Suite","Suite présidentielle","Chambre double","Chambre simple","Chambre simple","Chambre double","Suite"};
 		String[] theme_chambre_isl = {"sur le thème des aurores boréales","sur le thème des baleines","basalte","sur le thème des cascades","futuriste","sur le thème de la glace","sur le thème des glaciers","sur le thème des igloo","impérial","sur le thème des lagoon","de luxe","minimaliste","sur le thème des montagnes","sur le thème marin","sur le thème des animaux","sur le thème des ours polaires","traditionnel","sur le thème des vikings","sur le thème des  volcans","sur le thème elixirs"};
 		String[] theme_filtre_isl = {"Aimer des touristes","Aimer des touristes","Culture","Aimer des touristes","Moderne","Culture","Culture","Culture","Luxe","Luxe","Luxe","Moderne","Culture","Culture","Aimer des touristes","Aimer des touristes","Culture","Culture","Culture","Culture"};
-		Color islande_b = new Color(119, 136, 153);
-		Vue_hotel hotel_isl = new Vue_hotel(hotel_islande,entete_isl,chambre_isl,type_chambre_isl,theme_chambre_isl, islande_b,theme_filtre_isl);
+		Hotel_model islande = new Hotel_model("images//photo_entete_islande.png",chambre_isl,type_chambre_isl,theme_chambre_isl,new Color(119, 136, 153),theme_filtre_isl);
+		Vue_hotel hotel_isl = new Vue_hotel(hotel_islande,islande);
 
 		//hotel maroc 
 		Lieu_trsm[] lieux_ma = new Lieu_trsm[9];
@@ -112,13 +106,12 @@ public class Main_prjt{
         lieux_ma[8] = new Lieu_trsm("Gare MARRAKECH", "Centre, Bd Mohamed VI, Marrakesh 40 100, Maroc", "+212 5 37 77 47 47", 8);
 		
 		Hotel hotel_maroc = new Hotel("Maroc", "Marrakech", "Place Jemaa El Fna, Marrakech 40 000, Maroc", "Marrakech Palace", "+212 524 33 44 33", "marrakech_palace@hotel.com", lieux_ma);
-		String entete_ma = "images//hotel_ma.png";
 		String[] chambre_ma = {"arabe_cham_s.png","argile_cham_d.png","atay_cham_d.png","AtlasMajestueux_suite_p1.png","babouche_cham_s.png","couscous_cham_d.png","datte_suite_n.png","flouka_cham_s.png","hamam_suite_n.png","henna_cham_d.png","jame3lefna_cham_d.png","mosquee_cham_s.png","OasisDeLuxe_suite_p1.png","olivier_suite_n.png","or_cham_s.png","reveOriental_suite_p1.png","riadModerne_suite_p1.png","souk_suite_n.png","tajine_cham_d.png","tborida_cham_s.png"};
 		String[] type_chambre_ma ={"Chambre simple","Chambre double","Chambre double","Suite présidentielle","Chambre simple","Chambre double","Suite","Chambre simple","Suite","Chambre double","Chambre double","Chambre simple","Suite présidentielle","Suite","Chambre simple","Suite présidentielle","Suite présidentielle","Suite","Chambre double","Chambre simple"};
 		String[] theme_chambre_ma = {"Andalouse","Ocre","sur le thème du Atay","sur le thème des lions","sur le thème des babouches","berbère","sur le thème des dattes","sur le thème des flouka","sur le thème du hammam","sur le thème du henné","Jemaa el-Fna","Minaret","Oasis de luxe","sur le thème des oliviers","Zest","rêve oriental","riad moderne","sur le thème des épices","sur le thème du tajine","Sultane"};
 		String[] theme_filtre_ma = {"Moderne","Culture","Aimer des touristes","Aimer des touristes","Culture","Culture","Luxe","Culture","Luxe","Luxe","Culture","Aimer par les touristes","Luxe","Luxe","Moderne","Luxe","Moderne","Moderne","Aimer des touristes"};
-		Color maroc_b = new Color(240, 230, 210);
-		Vue_hotel hotel_ma = new Vue_hotel(hotel_maroc,entete_ma,chambre_ma,type_chambre_ma,theme_chambre_ma,maroc_b,theme_filtre_ma);
+		Hotel_model maroc = new Hotel_model("images//photo_entete_ma.png",chambre_ma,type_chambre_ma,theme_chambre_ma,new Color(240, 230, 210),theme_filtre_ma);
+		Vue_hotel hotel_ma = new Vue_hotel(hotel_maroc,maroc);
 		
 		//hotel sénégal 
 		Lieu_trsm[] lieux_sn = new Lieu_trsm[9];
@@ -134,50 +127,60 @@ public class Main_prjt{
         lieux_sn[8] = new Lieu_trsm("Gare ferroviaire de Dakar", "Dakar, Sénégal", "33 920 00 40", 8);
 		
 		Hotel hotel_senegal = new Hotel("Sénégal", "Dakar", "Bp 8, Somone, Sénégal", "Royal Horizon Baobab", "+221 33 939 71 71", "", lieux_sn);
-		String entete_sn = "images//hotel_senegal_entete_1.png";
 		String[] chambre_sn = {"barque_cham_s.png","cacao_cham_s.png","couleurs_cham_d.png","chocolat_cham_s.png","foot_cham_d.png","fruitexotic_suite_n.png","ile_suite_n.png","instrumentXalam_cham_s.png","koya_suite_n.png","LacRose_suite_p1.png","lion_suite_p1.png","maison_senegalaise_cham_d.png","mosquee_s_cham_d.png","moustiquaire_cham_d.png","ocean_cham_s.png","orange_s_cham_d.png","riz_cham_s.png","sheraton_suite_p1.png","tresse_suite_n.png","zoo_suite_p1.png"};
 		String[] type_chambre_sn = {"Chambre simple","Chambre simple","Chambre double","Chambre simple","Chambre double","Suite","Suite","Chambre simple","Suite","Suite présidentielle","Suite présidentielle","Chambre double","Chambre double","Chambre double","Chambre simple","Chambre double","Chambre simple","Suite présidentielle","Suite","Suite présidentielle"};
 		String[] theme_chambre_sn = {"sur le thème des barques","sur le thème cacao","coloré","chocolaté","sur le thème du football","sur le thème des fruits exotiques","sur le thème des îles","sur le thèmes des Xalam","koya","lac rose","sur le thèmes des lions","sur le thèmes des maisons sénégalaises","mosquée","sur le thème des moustiquaires","sur le thème des océan","orangé","sur le thème du riz","sheraton","sur le thème des tresse","sur le thème du zoo"};
-		Color senegal_b = new Color(144, 164, 96);
 		String[] theme_filtre_sn = {"Aimer des touristes","Culture","Culture","Aimer des tourites","Aimer des touristes","Luxe","Aimer des touristes","Culture","Luxe","Luxe","Moderne","Culture","Culture","Luxe","Culture","Moderne","Aimer des touristes","Luxe","Culture","Moderne"};
-		Vue_hotel hotel_sn = new Vue_hotel(hotel_senegal,entete_sn,chambre_sn,type_chambre_sn,theme_chambre_sn,senegal_b,theme_filtre_sn);
+		Hotel_model senegal = new Hotel_model("images//photo_entete_sn.png",chambre_sn,type_chambre_sn,theme_chambre_sn,new Color(144, 164, 96),theme_filtre_sn);
+		Vue_hotel hotel_sn = new Vue_hotel(hotel_senegal,senegal);
 		
-		//page japon
-		//Création des éléments nécessaires pour la vue Japon.
-		String path_fond_k = "images//Fond_japon.jpg";
-		String path_back_k = "images//Sakura_back.png";
-		String path_photo_k = "images//Hotel_Kyoto_3.jpg";
-		Color col_k = Color.PINK;
-		Color col2_k = new Color(244,204,231);
-		Color col3_k = new Color(232,100,134);
-		
-		//Création des éléments nécessaires pour la vue Islande. 
-		String path_fond_r = "images//Fond_islande.png";
-		String path_back_r = "images//Glacon_fond.png";
-		String path_photo_r = "images//Hotel_Reykjavik.png";
-		Color col_r = new Color(190,243,220);
-		Color col2_r = new Color(152,194,225);
-		Color col3_r = Color.WHITE;
+		//page Pays
+		Pays jap = new Pays("images//Fond_japon.jpg", "images//Sakura_back.png", "images//Hotel_Kyoto_3.jpg", Color.PINK, new Color(244,204,231), new Color(232,100,134));
+		Pays isl = new Pays("images//Fond_islande.png", "images//Glacon_fond.png", "images//Hotel_Reykjavik.png", new Color(190,243,220), new Color(152,194,225), Color.WHITE);
+		Pays fr = new Pays("images//Fond_france.png", "images//Fond_lys.png", "images//hotel_paris.png", new Color(105,181,238), new Color(180,235,126), Color.WHITE);
+		Pays ma = new Pays("images//Fond_maroc.png", "images//Fond_tajine.png", "images//hotel_maroc.png", new Color(169,121,217), new Color(111,180,241), Color.WHITE);
+		Pays thai = new Pays("images//Fond_thailande.png", "images//Fond_lanternes.png", "images//hotel_piscine_thai.jpg", new Color(162,240,233), new Color(249,222,142), Color.WHITE);
+		Pays sn = new Pays("images//Fond_senegal.png", "images//Fond_baobab.png", "images//hotel_senegal.png", new Color(215,107,100), new Color(215,107,100), Color.WHITE);
 		
 		//Création des vues.
-		Vue_pays v_j = new Vue_pays(hotel_japon, path_back_k, path_fond_k, path_photo_k, col_k, col2_k, col3_k);
-		Vue_pays v_i = new Vue_pays(hotel_islande, path_back_r, path_fond_r, path_photo_r, col_r, col2_r, col3_r);
+		Vue_pays v_j = new Vue_pays(hotel_japon, jap);
+		Vue_pays v_i = new Vue_pays(hotel_islande, isl);
+		Vue_pays v_f = new Vue_pays(hotel_france, fr);
+		Vue_pays v_m = new Vue_pays(hotel_maroc, ma);
+		Vue_pays v_t = new Vue_pays(hotel_thailande, thai);
+		Vue_pays v_s = new Vue_pays(hotel_senegal, sn);
 		
-		//page continent asie 
-		ContinentAsie asie = new ContinentAsie(m_1,v_i,v_j);
+		//vue continent
+		String[] pays_asie = {"japon.png","thailande.png"};
+		String[] nom_asie = {"Japon","Thailande"};
+		Continent_model asie_ct = new Continent_model(pays_asie,"asie.png",nom_asie,"Voyagez en Asie");
+		Continent Continent_Asie = new Continent(m_1,asie_ct);
+		
+		
+		String[] pays_afrique = {"maroc.png","senegal.png"};
+		String[] nom_afrique = {"Maroc","Sénégal"};
+		Continent_model afrique_ct = new Continent_model(pays_afrique,"afrique.png",nom_afrique,"Voyagez en Afrique");
+		Continent Continent_Afrique = new Continent(m_1, afrique_ct);
+		
+		String[] pays_europe = {"france.png","islande.png"};
+		String[] nom_europe = {"France","Islande"};
+		Continent_model europe_ct = new Continent_model(pays_europe,"europe1.png",nom_europe,"Voyagez en Europe");
+		Continent Continent_Europe = new Continent(m_1,europe_ct);
+
+		//vue principale/acceuil 
+		Vue_prcp vue_principale = new Vue_prcp(m_1,Continent_Asie,Continent_Europe,Continent_Afrique);
 		
 		//Initialisation des pages
 		//vue_principale.setVisible(true);
+		//Continent_Asie.setVisible(true);
+		//Continent_Afrique.setVisible(true);
+		//Continent_Europe.setVisible(true);
 		//japon_v.setVisible(false);
-		//hotel_jap.setVisible(true);
-		//hotel_thai.setVisible(true);
-		//hotel_prs.setVisible(true);
-		//hotel_isl.setVisible(true);
-		//hotel_ma.setVisible(true);
-		//hotel_sn.setVisible(true);
-		asie.setVisible(true);
+		//asie.setVisible(true);
 		vue_principale.pack();
-		asie.pack();
+		Continent_Asie.pack();
+		Continent_Afrique.pack();
+		Continent_Europe.pack();
 		hotel_jap.pack();
 		hotel_thai.pack();
 		hotel_prs.pack();
