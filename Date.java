@@ -1,12 +1,12 @@
 import java.util.*;
 
 public class Date {
-    	int jr;
-    	String mois;
-    	int annee;
-	int heure;
-	int minute;
-	String[] tab_mois = {"","janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"};
+    	public int jr;
+    	public String mois;
+    	public int annee;
+	public int heure;
+	public int minute;
+	private String[] tab_mois = {"","janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"};
 
     	public Date (int jr_d, int mois_d, int annee_d, int heure_d, int minute_d){
         	this.annee = annee_d;
