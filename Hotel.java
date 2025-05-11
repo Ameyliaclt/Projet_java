@@ -1,14 +1,14 @@
 import java.util.*;
 
 public class Hotel{
-    String pays_h;
-    String ville_h;
-    String ad_p_h;
-    String nm_h;
-    String num_t_h;
-    String ad_m_h;
-    boolean piscine;
-    Lieu_trsm[] lieux_prx; 
+    public String pays_h;
+    public String ville_h;
+    public String ad_p_h;
+    public String nm_h;
+    public String num_t_h;
+    public String ad_m_h;
+    public boolean piscine;
+    public Lieu_trsm[] lieux_prx; 
 
     public Hotel(String pays, String ville, String ad_p, String nm, String num, String ad_m, Lieu_trsm[] prx){
         pays_h = pays;
@@ -31,8 +31,9 @@ public class Hotel{
         lieux_prx = prx;
         piscine = pisc;
     }
-	    public String getNom() {
-        return nm_h;
+
+    public String getNom(){
+	return nm_h;
     }
     
     public String getPays() {
