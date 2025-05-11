@@ -3,12 +3,12 @@ import java.awt.*;
 import java.util.*;
 
 public class Pays{
-	String path_fond;
-	String path_back;
-	String path_photo;
-	Color col;
-	Color col2;
-	Color col3;
+	public String path_fond;
+	public String path_back;
+	public String path_photo;
+	public Color col;
+	public Color col2;
+	public Color col3;
 
 	public Pays(String path_f, String path_b, String path_p, Color colo, Color colo2, Color colo3){
 		path_fond = path_f;
