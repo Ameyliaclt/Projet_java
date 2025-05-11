@@ -145,14 +145,9 @@ panelGauche.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 panelGauche.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
 Set<Integer> deuxImagesIndices = new HashSet<>(Arrays.asList(
-    80,81, 96, 97, 98, 99, 100, 101, 102, 103, // Afrique - Suites présidentielles
-   // 104, 105, 106, 107, // Paris - Suites présidentielles
-   // 108, 109, 110, 111, // Autres - Suites présidentielles (suP)
-   // 112,
- 113, 114, 107,
-//115, // Kyoto - Suites (pas forcément présidentielles)
-    116, 117, 118, 119,  // Reykjavik - Suites (pas forcément présidentielles)
-   88, 89,90,91,92,93,94,95
+    80,81, 96, 97, 98, 99, 100, 101, 102, 103, 
+	113, 114, 107,116, 117, 118, 119,  
+	88, 89,90,91,92,93,94,95
 ));
 
 if (deuxImagesIndices.contains(index)) {
@@ -228,30 +223,8 @@ if (deuxImagesIndices.contains(index)) {
             break;
 
 
-	//case 92:
-       //     temp1 = new ImageIcon(new ImageIcon("suite_pres_louvres_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-       //     temp2 = new ImageIcon(new ImageIcon("suite_pres_louvres_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-      //      break;
-     //   case 93:
-      //      temp1 = new ImageIcon(new ImageIcon("suite_pres_luxe_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-      //      temp2 = new ImageIcon(new ImageIcon("suite_pres_luxe_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-      //      break;
-        //case 94:
-          //  temp1 = new ImageIcon(new ImageIcon("suite_pres_traditionnelfrancais_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-            //temp2 = new ImageIcon(new ImageIcon("suite_pres_traditionnelfrancais_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-      //      break;
-	// case 95:
-          //  temp1 = new ImageIcon(new ImageIcon("suite_pres_elysee_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-         //   temp2 = new ImageIcon(new ImageIcon("suite_pres_elysee_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-           // break;
 
 
-
-
-      //  case 112:
-       //     temp1 = new ImageIcon(new ImageIcon("Luxe_Kyoto_Suitep.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-       //     temp2 = new ImageIcon(new ImageIcon("Luxe_Kyoto_Suitep_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-        //    break;
         case 113:
             temp1 = new ImageIcon(new ImageIcon("Sushi_Kyoto_Suitep_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             temp2 = new ImageIcon(new ImageIcon("Sushi_Kyoto_Suitep.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
@@ -260,10 +233,7 @@ if (deuxImagesIndices.contains(index)) {
             temp1 = new ImageIcon(new ImageIcon("Moderne_Kyoto_Suitep_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             temp2 = new ImageIcon(new ImageIcon("Moderne_Kyoto_Suitep.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             break;
-	// case 115:
-          //  temp1 = new ImageIcon(new ImageIcon("Hanabi_Kyoto_Suitep_4.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-       //     temp2 = new ImageIcon(new ImageIcon("Hanabi_Kyoto_Suitep_4_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
-          //  break;
+
 
 	case 92:
             temp1 = new ImageIcon(new ImageIcon("Alcool_Reykjavik_Suite.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
@@ -303,7 +273,6 @@ if (deuxImagesIndices.contains(index)) {
             return;
     }
 
-    // Utiliser ImageIcon pour les images
     final ImageIcon image1 = temp1;
     final ImageIcon image2 = temp2;
 
