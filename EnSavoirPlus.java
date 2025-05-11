@@ -4,10 +4,13 @@ import java.awt.*;
 public class EnSavoirPlus extends JFrame {
 
 Model_prc mod;
-    JButton butt;
-    JLabel lab;
+    private JButton butt;
+    private JLabel lab;
     private JLabel imageLabel;
+    private JLabel titre;
+    
 
+	
     JPanel pBottom = new JPanel();
 
     public JMenuBar bar = new JMenuBar();
@@ -25,7 +28,7 @@ Model_prc mod;
         ImageIcon icon = new ImageIcon("icone_site.png");
         Image image = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         JLabel iconLabel = new JLabel(new ImageIcon(image));
-        JLabel titre = new JLabel("RoomBloom");
+        titre = new JLabel("RoomBloom");
         titre.setForeground(new Color(0, 0, 0));
         titre.setFont(new Font("Georgia", Font.ITALIC, 20));
         butt = new JButton("Me connecter/ M'inscrire");
