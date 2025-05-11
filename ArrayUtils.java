@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class ArrayUtils{
-	String[] tab;
-	String find;
+	public String[] tab;
+	public String find;
 
 	public ArrayUtils(String[] t, String f){
 		tab = t;
