@@ -62,7 +62,6 @@ String suite;
     "chambre_simple_parisien_paris.png", "chambre_simple_traditionnel_paris.png", "chambre_simple_moderne_paris.png", "chambre_simple_royal_paris.png", "chambre_simple_futuriste_paris.png", "chambre_simple_minimaliste_paris.png",
     "s_1t.png", "s_2t.png", "s_3t.png", "s_4t.png","s_5t.png", "s_6t.png", 
 
-
     "Tradition_printemps_Kyoto_Simple.png", "CarpeKoi_Kyoto_Simple.png", "Dragon_Kyoto_Simple.png", "Ghibli_Kyoto_Simple.png", "Traditionnelle_Kyoto_Simple.png", "Futuriste_Kyoto_Simple.png",
     "Aurore_Reykjavik_Simple.png", "Lagoon_Reykjavik_Simple.png", "Viking_Reykjavik_Simple.png", "Traditionnel_Reykjavik_Simple.png", "Igloo_Reykjavik_Simple.png", "Futuriste_Reykjavik_Simple.png",
 
@@ -88,92 +87,17 @@ String suite;
 
 
     // Suite Présidentielle
-    "LacRose_suite_p1.png",
-
-//"LacRose_suite_p2.png",
-
- "zoo_suite_p1.png",
-
-// "zoo_suite_p2.png",
-
- "lion_suite_p1.png",
-
-//"lion_suite_p2.png",
-
- "sheraton_suite_p1.png",
-
-// "sheraton_suite_p2.png",
-
-    "reveOriental_suite_p1.png",
-
-//"reveOriental_suite_p2.png",
-
- "OasisDeLuxe_suite_p1.png",
-
-// "OasisDeLuxe_suite_p2.png",
-
- "riadModerne_suite_p1.png",
-
-//"riadModerne_suite_p2.png",
-
- "AtlasMajestueux_suite_p1.png",
-
-// "AtlasMajestueux_suite_p2.png",
+    "LacRose_suite_p1.png", "zoo_suite_p1.png", "lion_suite_p1.png", "sheraton_suite_p1.png",
+    "reveOriental_suite_p1.png","OasisDeLuxe_suite_p1.png","riadModerne_suite_p1.png","AtlasMajestueux_suite_p1.png",
 
 
- "suite_pres_louvres_paris.png",
-//"suite_pres_louvres_paris_1.png",
- "suite_pres_luxe_paris.png",
-//"suite_pres_luxe_paris_1.png",
- "suite_pres_traditionnelfrancais_paris.png",
-//"suite_pres_traditionnelfrancais_paris_1.png",
- "suite_pres_elysee_paris.png",
-//"suite_pres_elysee_paris_1.png",
+    "suite_pres_louvres_paris.png","suite_pres_luxe_paris.png","suite_pres_traditionnelfrancais_paris.png", "suite_pres_elysee_paris.png",
+    "suP_1t.png", "suP_2t.png","suP_3t.png","suP_4t.png",
 
-    "suP_1t.png",
+	  
+    "Luxe_Kyoto_Suitep.png","Sushi_Kyoto_Suitep_1.png","Moderne_Kyoto_Suitep_1.png","Hanabi_Kyoto_Suitep_4.png", 
+    "Luxe_Reykjavik_Suitep.png", "Impérial_Reykjavik_Suitep.png", "Glace_futur_Reykjavik_Suitep.png", "Nature_Reykjavik_Suitep_1.png",
 
-// "suP_11t.png",
- "suP_2t.png",
-// "suP_21t.png",
-"suP_3t.png",
-// "suP_31t.png",
- "suP_4t.png",
-// "suP_41t.png",
-
-
-
-
-     "Luxe_Kyoto_Suitep.png",
-
-//"Luxe_Kyoto_Suitep_1.png",
-
-"Sushi_Kyoto_Suitep_1.png",
-
-//"Sushi_Kyoto_Suitep.png",
-
-"Moderne_Kyoto_Suitep_1.png",
-
-//"Moderne_Kyoto_Suitep.png",
-
- "Hanabi_Kyoto_Suitep_4.png",
-
-//"Hanabi_Kyoto_Suitep_4_1.png", 
-
-     "Luxe_Reykjavik_Suitep.png",
-
- //"Luxe_Reykjavik_Suitep_1.png",
-
-"Impérial_Reykjavik_Suitep.png",
-
-//"Impérial_Reykjavik_Suitep_1.png",
-
- "Glace_futur_Reykjavik_Suitep.png",
-
-//"Glace_futur_Reykjavik_Suitep_1.png",
-
- "Nature_Reykjavik_Suitep_1.png",
-
-//"Nature_Reykjavik_Suitep.png" 
 
 };
 
