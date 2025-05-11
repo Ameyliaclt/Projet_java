@@ -31,4 +31,35 @@ public class Hotel{
         lieux_prx = prx;
         piscine = pisc;
     }
+	    public String getNom() {
+        return nm_h;
+    }
+    
+    public String getPays() {
+        return pays_h;
+    }
+    
+    public String getVille() {
+        return ville_h;
+    }
+    
+    public String getAdresse() {
+        return ad_p_h;
+    }
+    
+    public String getNumero() {
+        return num_t_h;
+    }
+    
+    public String getEmail() {
+        return ad_m_h;
+    }
+    
+    public Lieu_trsm[] getLieux() {
+        return lieux_prx;
+    }
+    
+    public boolean hasPiscine() {
+        return piscine;
+    }
 }

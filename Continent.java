@@ -7,18 +7,20 @@ public class Continent extends JFrame {
 	Continent_model ct;
     JLabel lab;
     JButton butt;
+	private JLabel nom_p1;
+	private JLabel nom_p2;
 
     JMenuBar bar = new JMenuBar(); 
+	JLabel titre;
     JMenu dest = new JMenu("Destinations");
     JMenu selct = new JMenu("Nos sélections");
     JMenu sav = new JMenu("En savoir plus");
 	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
 	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
 	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
-	JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
-	JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familliales");
-	JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres familliales");
+	JMenuItem rec_selct2 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct3 = new JMenuItem("Nos suites luxueuses");
 	
 	JPanel mt_legl = new JPanel();
 	
@@ -39,7 +41,7 @@ public Continent(Model_prjt md,Continent_model continent) {
     ImageIcon icon = new ImageIcon("images//icone_site.png"); 
 	Image image = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	JLabel iconLabel = new JLabel(new ImageIcon(image));
-	JLabel titre = new JLabel("RoomBloom");
+	titre = new JLabel("RoomBloom");
 	//p_vue_prcp controleur = new p_vue_prcp(this, mod);
 	//p_vue_prcp.rendreJLabelCliquable(titre, controleur);
 	titre.setForeground(new Color(0, 0, 0));
@@ -88,8 +90,6 @@ public Continent(Model_prjt md,Continent_model continent) {
 	selct.add(rec_selct3);
 	rec_selct3.setFont(new Font("Georgia", Font.PLAIN, 12));
 	selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-	selct.add(rec_selct4);
-	rec_selct4.setFont(new Font("Georgia", Font.PLAIN, 12));
 
 	
 	bar.add(sav);
@@ -119,7 +119,7 @@ public Continent(Model_prjt md,Continent_model continent) {
 	Image img_pays = icon_pays.getImage().getScaledInstance(400, 340, Image.SCALE_SMOOTH);
 	JLabel fond_1 = new JLabel(new ImageIcon(img_pays));
     fond_1.setLayout(new BorderLayout());
-	JLabel nom_p1 = new JLabel(continent.nom_pays[0],SwingConstants.CENTER);
+	nom_p1 = new JLabel(continent.nom_pays[0],SwingConstants.CENTER);
 	nom_p1.setForeground(gold);
 	nom_p1.setFont(new Font("Georgia", Font.ITALIC, 35));
 	nom_p1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -134,7 +134,7 @@ public Continent(Model_prjt md,Continent_model continent) {
 	Image img_pays_1 = icon_pays_1.getImage().getScaledInstance(400, 340, Image.SCALE_SMOOTH);
 	JLabel fond_2 = new JLabel(new ImageIcon(img_pays_1));
     fond_2.setLayout(new BorderLayout());
-	JLabel nom_p2 = new JLabel(continent.nom_pays[1],SwingConstants.CENTER);
+	nom_p2 = new JLabel(continent.nom_pays[1],SwingConstants.CENTER);
 	nom_p2.setForeground(gold);
 	nom_p2.setFont(new Font("Georgia", Font.ITALIC, 35));
 	nom_p2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -225,4 +225,34 @@ private JPanel createImagePanel(String imagePath, int width, int height, String 
     panel.add(imageLabel, BorderLayout.CENTER);
     return panel;
 }
+	public JLabel getLabelPays_1() {
+		return nom_p1;
+	}
+	public JLabel getLabelPays_2() {
+		return nom_p2;
+	}
+	public JMenuItem getRecDest1() {
+		return rec_dest1;
+	}
+	public JMenuItem getRecDest2() {
+		return rec_dest2;
+	}
+	public JMenuItem getRecDest3() {
+		return rec_dest3;
+	}
+	public JLabel gettitre(){
+		return titre;
+	}
+	public JButton getButt() {
+		return butt;
+	}
+	public JMenuItem getrec_selct1() {
+		return rec_selct1;
+	}
+	public JMenuItem getrec_selct2() {
+		return rec_selct2;
+	}
+	public JMenuItem getrec_selct3() {
+		return rec_selct3;
+	}
 }

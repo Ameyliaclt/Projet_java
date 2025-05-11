@@ -48,6 +48,8 @@ public class Vue_pays extends JFrame{
 	BufferedImage back;
 
 	JMenuBar bar = new JMenuBar();
+	JLabel titre;
+	JButton butt;
 	JMenu dest = new JMenu("Destinations");
 	JMenu selct = new JMenu("Nos sélections");
 	JMenu sav = new JMenu("En savoir plus");
@@ -55,10 +57,9 @@ public class Vue_pays extends JFrame{
 	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
 	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
 
-	JMenuItem rec_selct1 = new JMenuItem("Nos chambres insolites");
-	JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
-	JMenuItem rec_selct3 = new JMenuItem("Nos chambres familiales");
-	JMenuItem rec_selct4 = new JMenuItem("Nos chambres solo pour vous");
+	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres familliales");
+	JMenuItem rec_selct2 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct3 = new JMenuItem("Nos suites luxueuses");
 
 	JPanel mt_legl = new JPanel();
 
@@ -76,15 +77,15 @@ public class Vue_pays extends JFrame{
 
 		bar.setPreferredSize(new Dimension(90,91));
 
-		ImageIcon icon = new ImageIcon("Projet_poo_images//icone_site.png");
+		ImageIcon icon = new ImageIcon("images//icone_site.png");
 		Image image = icon.getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH);
 		JLabel iconLabel = new JLabel(new ImageIcon(image));
 	
-		JLabel titre = new JLabel("RoomBloom");
+		titre = new JLabel("RoomBloom");
 		titre.setForeground(new Color(0,0,0));
 		titre.setFont(new Font("Georgia", Font.ITALIC, 20));
 
-		JButton butt = new JButton("Me connecter/ M'inscrire");
+		butt = new JButton("Me connecter/ M'inscrire");
 		butt.setBackground(new Color(245,245,245));
 		butt.setFocusPainted(false);
 
@@ -130,8 +131,6 @@ public class Vue_pays extends JFrame{
 		selct.add(rec_selct3);
 		rec_selct3.setFont(new Font("Georgia", Font.PLAIN, 12));
 		selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-		selct.add(rec_selct4);
-		rec_selct4.setFont(new Font("Georgia", Font.PLAIN, 12));
 		
 		bar.add(sav);
 		sav.setFont(new Font("Georgia", Font.PLAIN, 12));
@@ -237,7 +236,7 @@ public class Vue_pays extends JFrame{
 		main.add(p2, BorderLayout.CENTER);
 
 		mt_legl.setLayout(new GridLayout(4,4));
-		ImageIcon icon_mt = new ImageIcon("Projet_poo_images//icone_site.png");
+		ImageIcon icon_mt = new ImageIcon("images//icone_site.png");
 		Image image_mt = icon_mt.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		JLabel iconLabel_mt = new JLabel(new ImageIcon(image_mt));
 		
@@ -330,5 +329,35 @@ public class Vue_pays extends JFrame{
 		else text += "le "+ho.pays_h;
 
 		return text;
+	}
+	
+    public void setControlleur(NavControlleur controlleur) {        
+        controlleur.rendreCliquable(nom);
+    }
+	
+	public JLabel gettitre(){
+		return titre;
+	}
+	
+	public JMenuItem getRecDest1() {
+		return rec_dest1;
+	}
+	public JMenuItem getRecDest2() {
+		return rec_dest2;
+	}
+	public JMenuItem getRecDest3() {
+		return rec_dest3;
+	}
+	public JButton getButt() {
+		return butt;
+	}
+	public JMenuItem getrec_selct1() {
+		return rec_selct1;
+	}
+	public JMenuItem getrec_selct2() {
+		return rec_selct2;
+	}
+	public JMenuItem getrec_selct3() {
+		return rec_selct3;
 	}
 }

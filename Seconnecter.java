@@ -5,7 +5,7 @@ import java.awt.event.FocusListener;
 import javax.swing.text.JTextComponent;
 
 public class Seconnecter extends JFrame {
-    Model_prc mod;
+    Model_connectinscr mod;
     JButton butt;
     JLabel lab;
     private JLabel imageLabel;
@@ -13,11 +13,28 @@ public class Seconnecter extends JFrame {
     JPanel pBottom = new JPanel();
 
     public JMenuBar bar = new JMenuBar();
+	JLabel titre;
     JMenu dest = new JMenu("Destinations");
     JMenu selct = new JMenu("Nos sélections");
     JMenu sav = new JMenu("En savoir plus");
+	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
+	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
+	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
+	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres familliales");
+	JMenuItem rec_selct2 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct3 = new JMenuItem("Nos suites luxueuses");
+	
+	JButton loginButton;
+	JButton registerButton;
+	JTextField emailLogin;
+	JPasswordField passwordLogin;
+	JTextField nom;
+	JTextField prenom;
+	JTextField phone;
+	JTextField emailRegister;
+	JPasswordField passwordRegister;
 
-    public Seconnecter(Model_prc md) {
+    public Seconnecter(Model_connectinscr md) {
         super("Connexion / Inscription");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
@@ -25,10 +42,10 @@ public class Seconnecter extends JFrame {
         lab = new JLabel();
 
         // Barre de menu
-        ImageIcon icon = new ImageIcon("icone_site.png");
+        ImageIcon icon = new ImageIcon("images//icone_site.png");
         Image image = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         JLabel iconLabel = new JLabel(new ImageIcon(image));
-        JLabel titre = new JLabel("RoomBloom");
+        titre = new JLabel("RoomBloom");
         titre.setForeground(new Color(0, 0, 0));
         titre.setFont(new Font("Georgia", Font.ITALIC, 20));
         butt = new JButton("Me connecter/ M'inscrire");
@@ -39,14 +56,6 @@ public class Seconnecter extends JFrame {
         sepPanel.setPreferredSize(new Dimension(2, 40));
         sepPanel.setMaximumSize(new Dimension(2, 40));
         sepPanel.setBackground(Color.GRAY);
-
-        JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
-        JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
-        JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-        JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
-        JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
-        JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familiales");
-        JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
 
         this.setJMenuBar(bar);
         bar.setBackground(Color.WHITE);
@@ -73,8 +82,6 @@ public class Seconnecter extends JFrame {
         selct.add(rec_selct2);
         selct.add(new JSeparator(SwingConstants.HORIZONTAL));
         selct.add(rec_selct3);
-        selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-        selct.add(rec_selct4);
 
         bar.add(sav);
         sav.setFont(new Font("Georgia", Font.PLAIN, 12));
@@ -111,18 +118,18 @@ loginPanel.add(loginTitle);
 loginPanel.add(Box.createRigidArea(new Dimension(0, 30)));
 
 // Champs de texte avec les mêmes dimensions et couleur blanche cassée
-JTextField emailLogin = styledTextField("  Mail");
+emailLogin = styledTextField("  Mail");
 emailLogin.setBackground(lightGray); // Application de la couleur blanche cassée
 emailLogin.setPreferredSize(new Dimension(300, 10)); // Taille du champ
-emailLogin.addFocusListener(new SearchFieldController(emailLogin, "  Mail", Color.GRAY, Color.BLACK));
+emailLogin.addFocusListener(new FieldController(emailLogin, "  Mail", Color.GRAY, Color.BLACK));
 
-JPasswordField passwordLogin = styledPasswordField("  Mot de passe");
+passwordLogin = styledPasswordField("  Mot de passe");
 passwordLogin.setBackground(lightGray); // Application de la couleur blanche cassée
 passwordLogin.setPreferredSize(new Dimension(300, 10)); // Taille du champ
-passwordLogin.addFocusListener(new SearchFieldController(passwordLogin, "  Mot de passe", Color.GRAY, Color.BLACK));
+passwordLogin.addFocusListener(new FieldController(passwordLogin, "  Mot de passe", Color.GRAY, Color.BLACK));
 
 
-JButton loginButton = styledButton("Se connecter");
+loginButton = styledButton("Se connecter");
 //loginButton.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
 loginPanel.add(emailLogin);
 loginPanel.add(Box.createRigidArea(new Dimension(0, 50)));
@@ -154,32 +161,32 @@ registerPanel.add(registerTitle);
 registerPanel.add(Box.createRigidArea(new Dimension(0, 30)));
 
 // Champs de texte avec les mêmes dimensions et couleur blanche cassée
-JTextField nom = styledTextField("  Nom");
+nom = styledTextField("  Nom");
 nom.setBackground(lightGray); // Application de la couleur blanche cassée
 nom.setPreferredSize(new Dimension(300, 30)); // Taille du champ
-nom.addFocusListener(new SearchFieldController(nom, "  Nom", Color.GRAY, Color.BLACK));
+nom.addFocusListener(new FieldController(nom, "  Nom", Color.GRAY, Color.BLACK));
 
-JTextField prenom = styledTextField("  Prénom");
+prenom = styledTextField("  Prénom");
 prenom.setBackground(lightGray); // Application de la couleur blanche cassée
 prenom.setPreferredSize(new Dimension(300, 30)); // Taille du champ
-prenom.addFocusListener(new SearchFieldController(prenom, "  Prénom", Color.GRAY, Color.BLACK));
+prenom.addFocusListener(new FieldController(prenom, "  Prénom", Color.GRAY, Color.BLACK));
 
-JTextField phone = styledTextField("  Téléphone");
+phone = styledTextField("  Téléphone");
 phone.setBackground(lightGray); // Application de la couleur blanche cassée
 phone.setPreferredSize(new Dimension(300, 30)); // Taille du champ
-phone.addFocusListener(new SearchFieldController(phone, "  Téléphone", Color.GRAY, Color.BLACK));
+phone.addFocusListener(new FieldController(phone, "  Téléphone", Color.GRAY, Color.BLACK));
 
-JTextField emailRegister = styledTextField("  Mail");
+emailRegister = styledTextField("  Mail");
 emailRegister.setBackground(lightGray); // Application de la couleur blanche cassée
 emailRegister.setPreferredSize(new Dimension(300, 30)); // Taille du champ
-emailRegister.addFocusListener(new SearchFieldController(emailRegister, "  Mail", Color.GRAY, Color.BLACK));
+emailRegister.addFocusListener(new FieldController(emailRegister, "  Mail", Color.GRAY, Color.BLACK));
 
-JPasswordField passwordRegister = styledPasswordField("Mot de passe");
+passwordRegister = styledPasswordField("Mot de passe");
 passwordRegister.setBackground(lightGray); // Application de la couleur blanche cassée
 passwordRegister.setPreferredSize(new Dimension(300, 30)); // Taille du champ
-passwordRegister.addFocusListener(new SearchFieldController(passwordRegister, "Mot de passe", Color.GRAY, Color.BLACK));
+passwordRegister.addFocusListener(new FieldController(passwordRegister, "Mot de passe", Color.GRAY, Color.BLACK));
 
-JButton registerButton = styledButton("S'inscrire");
+registerButton = styledButton("S'inscrire");
 
 registerPanel.add(nom);
 registerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -224,7 +231,7 @@ mainPanel.add(registerPanel, gbc);
 // MENTIONS LÉGALES
     JPanel mt_legl = new JPanel(new GridLayout(4, 4));
     mt_legl.setBackground(Color.LIGHT_GRAY);
-    ImageIcon icon_mt = new ImageIcon("icone_site.png");
+    ImageIcon icon_mt = new ImageIcon("images//icone_site.png");
     Image image_mt = icon_mt.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
     JLabel iconLabel_mt = new JLabel(new ImageIcon(image_mt));
 
@@ -264,9 +271,6 @@ mainPanel.add(registerPanel, gbc);
         scrollPane.getVerticalScrollBar().setUnitIncrement(12);
 
         this.setContentPane(scrollPane);
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
     }
 
     // Define missing methods
@@ -292,13 +296,13 @@ mainPanel.add(registerPanel, gbc);
         return button;
     }
 
-    public static class SearchFieldController implements FocusListener {
+    public static class FieldController implements FocusListener {
         private final JTextComponent field;
         private final String defaultText;
         private final Color defaultColor;
         private final Color focusColor;
 
-        public SearchFieldController(JTextComponent field, String defaultText, Color defaultColor, Color focusColor) {
+        public FieldController(JTextComponent field, String defaultText, Color defaultColor, Color focusColor) {
             this.field = field;
             this.defaultText = defaultText;
             this.defaultColor = defaultColor;
@@ -321,6 +325,65 @@ mainPanel.add(registerPanel, gbc);
             }
         }
     }
+	public JMenuItem getRecDest1() {
+		return rec_dest1;
+	}
+	public JMenuItem getRecDest2() {
+		return rec_dest2;
+	}
+	public JMenuItem getRecDest3() {
+		return rec_dest3;
+	}
+	public JMenuItem getrec_selct1() {
+		return rec_selct1;
+	}
+	public JMenuItem getrec_selct2() {
+		return rec_selct2;
+	}
+	public JMenuItem getrec_selct3() {
+		return rec_selct3;
+	}
+	public JButton getButt() {
+		return butt;
+	}
+	public JLabel gettitre(){
+		return titre;
+	}
+	public JButton getLoginButton() {
+		return loginButton;
+	}
+
+	public JButton getRegisterButton() {
+		return registerButton;
+	}
+
+	public JTextField getEmailLogin() {
+		return emailLogin;
+	}
+
+	public JPasswordField getPasswordLogin() {
+		return passwordLogin;
+	}
+
+	public JTextField getNom() {
+		return nom;
+	}
+
+	public JTextField getPrenom() {
+		return prenom;
+	}
+
+	public JTextField getPhone() {
+		return phone;
+	}
+
+	public JTextField getEmailRegister() {
+		return emailRegister;
+	}
+
+	public JPasswordField getPasswordRegister() {
+		return passwordRegister;
+	}
 }
 
 
