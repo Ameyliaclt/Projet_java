@@ -162,4 +162,14 @@ public class Date {
 
 		return d;
 	}
+
+	public String ifZero_h(Date date){
+		if((date.heure >= 0)&&(date.heure <= 9)) return "0";
+		else return "";
+	}
+
+	public String ifZero_m(Date date){
+		if((date.minute >=0)&&(date.minute <=9)) return "0";
+		else return "";
+	}
 }
