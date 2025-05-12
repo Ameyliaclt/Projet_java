@@ -660,9 +660,9 @@ public class Vue_gestion_rs extends JFrame{
 			conso_mb = new JLabel(details_conso(i));
 			conso_mb.setFont(new Font("Georgia", Font.PLAIN, 14));
 			conso_mb.setAlignmentX(Component.BOTTOM_ALIGNMENT);
-			conso_mb.setPreferredSize(new Dimension((int)((double)t_scr.getWidth()*0.6), (int)((double)t_scr.getHeight()*0.05)));
-			conso_mb.setMinimumSize(new Dimension((int)((double)t_scr.getWidth()*0.6), (int)((double)t_scr.getHeight()*0.05)));
-			conso_mb.setMaximumSize(new Dimension((int)((double)t_scr.getWidth()*0.6), (int)((double)t_scr.getHeight()*0.05)));
+			conso_mb.setPreferredSize(new Dimension((int)((double)t_scr.getWidth()*0.6), (int)((double)t_scr.getHeight()*0.055)));
+			conso_mb.setMinimumSize(new Dimension((int)((double)t_scr.getWidth()*0.6), (int)((double)t_scr.getHeight()*0.055)));
+			conso_mb.setMaximumSize(new Dimension((int)((double)t_scr.getWidth()*0.6), (int)((double)t_scr.getHeight()*0.055)));
 			r.add(conso_mb);
 
 			layout.setLayout(new FlowLayout(FlowLayout.LEFT));
