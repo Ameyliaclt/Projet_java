@@ -8,16 +8,16 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
 
-
 public class PageAvecImageEtCarte extends JFrame {
-     Model_prc mod;
-     int index;
-     JLabel imageLabel;
-     JLabel titre;
-     JButton retourButton;
-     JButton butt;
-  
-    
+    Model_prc mod;
+    int index;
+    JLabel imageLabel;
+    JLabel titre;
+    JButton retourButton;
+    JButton butt;
+    // Ajout d'un objet Chambre
+    Model_prc.Chambre chambreActuelle;
+
     public JMenuBar bar = new JMenuBar();
     JMenu dest = new JMenu("Destinations");
     JMenu selct = new JMenu("Nos sélections");
@@ -28,8 +28,32 @@ public class PageAvecImageEtCarte extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         imageLabel = new JLabel();
-	this.mod = md;
+        this.mod = md;
         this.index = index;
+
+        // Initialisation de la chambre avec les données correspondant à l'index
+
+        int nbUtilisateurs = 1; //  chambre simple
+
+        if (mod.types[index].equals("Chambre Double")) {
+            nbUtilisateurs = 2;
+        } else if (mod.types[index].equals("Suite Normale")) {
+            nbUtilisateurs = 3;
+        } else if (mod.types[index].equals("Suite Présidentielle")) {
+            nbUtilisateurs = 4;
+        }
+
+        // Création de l'objet Chambre
+        this.chambreActuelle = new Model_prc.Chambre(
+                nbUtilisateurs,
+                mod.types[index],
+                mod.themes[index],
+                mod.prix[index],
+                mod.images[index]
+        );
+
+        // Mise à jour du titre de la fenêtre avec le thème de la chambre
+        this.setTitle("RoomBloom - " + chambreActuelle.thm_ch);
 
         // Barre de menu
         ImageIcon icon = new ImageIcon("icone_site.png");
@@ -42,8 +66,6 @@ public class PageAvecImageEtCarte extends JFrame {
         butt.setBackground(new Color(245, 245, 245));
         butt.setFocusPainted(false);
 
-
-
         JPanel separator = new JPanel();
         separator.setPreferredSize(new Dimension(2, 40));
         separator.setMaximumSize(new Dimension(2, 40));
@@ -52,15 +74,11 @@ public class PageAvecImageEtCarte extends JFrame {
         JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
         JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
         JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-      //  JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
         JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
         JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familliales");
         JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
 
         this.setJMenuBar(bar);
-
-
-
 
         bar.setBackground(Color.WHITE);
         bar.add(Box.createHorizontalStrut(15));
@@ -85,8 +103,6 @@ public class PageAvecImageEtCarte extends JFrame {
         bar.add(selct);
         selct.setFont(new Font("Georgia", Font.PLAIN, 12));
         bar.add(Box.createHorizontalStrut(10));
-       // selct.add(rec_selct1);
-        //rec_selct1.setFont(new Font("Georgia", Font.PLAIN, 12));
         selct.add(new JSeparator(SwingConstants.HORIZONTAL));
         selct.add(rec_selct2);
         rec_selct2.setFont(new Font("Georgia", Font.PLAIN, 12));
@@ -103,49 +119,39 @@ public class PageAvecImageEtCarte extends JFrame {
         bar.add(butt);
         butt.setFont(new Font("Georgia", Font.PLAIN, 12));
 
-//bar.add(sav);
-//sav.setFont(new Font("Georgia", Font.PLAIN, 12));
+        bar.add(Box.createHorizontalStrut(10));
 
-// Ajouter un espace
-bar.add(Box.createHorizontalStrut(10));
+        // Créer le bouton "Retour"
+        retourButton = new JButton("Retour");
+        retourButton.setFont(new Font("Georgia", Font.PLAIN, 12));
+        retourButton.setBackground(new Color(245, 245, 245));
+        retourButton.setFocusPainted(false);
 
+        bar.add(retourButton);
 
-// Créer le bouton "Retour"
-retourButton = new JButton("Retour");
-retourButton.setFont(new Font("Georgia", Font.PLAIN, 12));
-retourButton.setBackground(new Color(245, 245, 245));
-retourButton.setFocusPainted(false);
+        // Ajouter un espace
+        bar.add(Box.createHorizontalStrut(550));
 
-
-bar.add(retourButton);
-
-// Ajouter un espace
-bar.add(Box.createHorizontalStrut(550));
-
-// Ajouter le bouton "Se connecter / S'inscrire"
-butt.setFont(new Font("Georgia", Font.PLAIN, 12));
-bar.add(butt);
+        // Ajouter le bouton "Se connecter / S'inscrire"
+        butt.setFont(new Font("Georgia", Font.PLAIN, 12));
+        bar.add(butt);
 
         bar.add(Box.createHorizontalStrut(15));
         bar.setPreferredSize(new Dimension(90, 91));
-
-
-
-
 
         //  Couleurs
         Color fondClair = new Color(0, 0, 0);
         Color roseGrisClair = new Color(180, 160, 130);
         Color blancCasse = new Color(245, 245, 240);
 
-//  PANEL GAUCHE
-JPanel panelGauche = new JPanel(new BorderLayout());
-panelGauche.setBackground(fondClair);
-panelGauche.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-panelGauche.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        //  PANEL GAUCHE
+        JPanel panelGauche = new JPanel(new BorderLayout());
+        panelGauche.setBackground(fondClair);
+        panelGauche.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        panelGauche.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-Set<Integer> deuxImagesIndices = new HashSet<>(Arrays.asList(
-    80,81, 96, 97, 98, 99, 100, 101, 102, 103, // Afrique - Suites présidentielles
+        Set<Integer> deuxImagesIndices = new HashSet<>(Arrays.asList(
+                  80,81, 96, 97, 98, 99, 100, 101, 102, 103, // Afrique - Suites présidentielles
    // 104, 105, 106, 107, // Paris - Suites présidentielles
    // 108, 109, 110, 111, // Autres - Suites présidentielles (suP)
    // 112,
@@ -153,14 +159,14 @@ Set<Integer> deuxImagesIndices = new HashSet<>(Arrays.asList(
 //115, // Kyoto - Suites (pas forcément présidentielles)
     116, 117, 118, 119,  // Reykjavik - Suites (pas forcément présidentielles)
    88, 89,90,91,92,93,94,95
-));
+        ));
 
-if (deuxImagesIndices.contains(index)) {
-    ImageIcon temp1 = null;
-    ImageIcon temp2 = null;
+        if (deuxImagesIndices.contains(index)) {
+            ImageIcon temp1 = null;
+            ImageIcon temp2 = null;
 
-    switch (index) {
-
+            switch (index) {
+               
 	case 80:
             temp1 = new ImageIcon(new ImageIcon("suite_monnet_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             temp2 = new ImageIcon(new ImageIcon("suite_monnet_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
@@ -301,50 +307,50 @@ if (deuxImagesIndices.contains(index)) {
             break;
         default:
             return;
-    }
+            }
+// Utiliser ImageIcon pour les images
+final ImageIcon image1 = temp1;
+final ImageIcon image2 = temp2;
 
-    // Utiliser ImageIcon pour les images
-    final ImageIcon image1 = temp1;
-    final ImageIcon image2 = temp2;
+JLabel imageLabel = new JLabel(image1);
+imageLabel.setBounds(0, 0, 700, 600);
 
-    JLabel imageLabel = new JLabel(image1);
-    imageLabel.setBounds(0, 0, 700, 600);
+JButton voirPlusBtn = new JButton("Voir plus");
+JButton retourBtn = new JButton("←");
+retourBtn.setVisible(false);
+voirPlusBtn.setBackground(blancCasse);
+voirPlusBtn.setForeground(Color.BLACK);
+retourBtn.setBackground(blancCasse);
+retourBtn.setForeground(Color.BLACK);
 
-    JButton voirPlusBtn = new JButton("Voir plus");
-    JButton retourBtn = new JButton("←");
+voirPlusBtn.addActionListener(e -> {
+    imageLabel.setIcon(image2);
+    voirPlusBtn.setVisible(false);
+    retourBtn.setVisible(true);
+});
+
+retourBtn.addActionListener(e -> {
+    imageLabel.setIcon(image1);
+    voirPlusBtn.setVisible(true);
     retourBtn.setVisible(false);
-    voirPlusBtn.setBackground(blancCasse);
-    voirPlusBtn.setForeground(Color.BLACK);
-    retourBtn.setBackground(blancCasse);
-    retourBtn.setForeground(Color.BLACK);
+});
 
-    voirPlusBtn.addActionListener(e -> {
-        imageLabel.setIcon(image2);
-        voirPlusBtn.setVisible(false);
-        retourBtn.setVisible(true);
-    });
+JLayeredPane layeredPane = new JLayeredPane();
+layeredPane.setPreferredSize(new Dimension(700, 600));
+layeredPane.add(imageLabel, JLayeredPane.DEFAULT_LAYER);
 
-    retourBtn.addActionListener(e -> {
-        imageLabel.setIcon(image1);
-        voirPlusBtn.setVisible(true);
-        retourBtn.setVisible(false);
-    });
+JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+buttonPanel.setBounds(470, 500, 180, 50);
+buttonPanel.setOpaque(false);
+buttonPanel.add(voirPlusBtn);
+buttonPanel.add(retourBtn);
+layeredPane.add(buttonPanel, JLayeredPane.PALETTE_LAYER);
 
-    JLayeredPane layeredPane = new JLayeredPane();
-    layeredPane.setPreferredSize(new Dimension(700, 600));
-    layeredPane.add(imageLabel, JLayeredPane.DEFAULT_LAYER);
+panelGauche.add(layeredPane, BorderLayout.NORTH);
 
-    JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-    buttonPanel.setBounds(470, 500, 180, 50);
-    buttonPanel.setOpaque(false);
-    buttonPanel.add(voirPlusBtn);
-    buttonPanel.add(retourBtn);
-    layeredPane.add(buttonPanel, JLayeredPane.PALETTE_LAYER);
-
-    panelGauche.add(layeredPane, BorderLayout.NORTH);
 } else {
-    // Afficher les autres images sans boutons
-    Image image5 = new ImageIcon(mod.images[index]).getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH);
+    // Afficher les autres images sans boutons - Utilisation directe de chambre.image
+    Image image5 = new ImageIcon(chambreActuelle.image).getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH);
 
     ImageIcon scaledIcon = new ImageIcon(image5); // convertir en ImageIcon pour JLabel
     JLabel imageLabel = new JLabel(scaledIcon);
@@ -357,10 +363,7 @@ if (deuxImagesIndices.contains(index)) {
     panelGauche.add(layeredPane, BorderLayout.NORTH);
 }
 
-
-
-
- // PANEL DROITE
+// PANEL DROITE
 JPanel panelDroite = new JPanel();
 panelDroite.setLayout(new BoxLayout(panelDroite, BoxLayout.Y_AXIS));  // BoxLayout pour empiler les composants verticalement
 panelDroite.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -370,15 +373,11 @@ panelDroite.setMaximumSize(new Dimension(100, Integer.MAX_VALUE));
 // Description Panel
 JPanel descriptionPanel = new JPanel();
 descriptionPanel.setLayout(new BoxLayout(descriptionPanel, BoxLayout.Y_AXIS)); // Utilisation du BoxLayout ici
-//descriptionPanel.setBorder(BorderFactory.createCompoundBorder(
-       // BorderFactory.createLineBorder(Color.BLACK, 2),
-     //   BorderFactory.createEmptyBorder(0, 0, 0, 0)
-//));
 descriptionPanel.setBackground(roseGrisClair);
 descriptionPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
 
-// Titre
-JLabel titreDesc = new JLabel(mod.types[index] + " - " + mod.themes[index]);
+// Titre - Utilisation des propriétés de l'objet chambre
+JLabel titreDesc = new JLabel(chambreActuelle.t_ch + " - " + chambreActuelle.thm_ch);
 titreDesc.setFont(new Font("Arial", Font.BOLD, 16));
 titreDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
 titreDesc.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
@@ -395,10 +394,9 @@ descriptionText.setBorder(BorderFactory.createEmptyBorder(30, 70, 70, 70)); // d
 StyledDocument doc = descriptionText.getStyledDocument();
 
 Style stylePrix = descriptionText.addStyle("prix", null);
-StyleConstants.setForeground(stylePrix, Color.BLACK); 
+StyleConstants.setForeground(stylePrix, Color.BLACK);
 StyleConstants.setBold(stylePrix, true);
 StyleConstants.setFontSize(stylePrix, 18);
-
 
 Style styleRose = descriptionText.addStyle("rose", null);
 StyleConstants.setForeground(styleRose, new Color(120, 100, 70));
@@ -408,12 +406,12 @@ Style styleNoir = descriptionText.addStyle("noir", null);
 StyleConstants.setForeground(styleNoir, Color.BLACK);
 
 String[] descriptionParts = mod.getDescription(index); // [base, suite]
-int prix = mod.getPrix(index); 
+int prix = chambreActuelle.prix; // Utilisation du prix de la chambre
 
 try {
     doc.insertString(doc.getLength(), descriptionParts[0], styleRose); // intro rose
     doc.insertString(doc.getLength(), descriptionParts[1], styleNoir);  // suite en noir
-    doc.insertString(doc.getLength(),"                                           Prix TTC  " + prix + " € ", stylePrix);
+    doc.insertString(doc.getLength(), "                                           Prix TTC  " + prix + " € ", stylePrix);
 } catch (BadLocationException e) {
     e.printStackTrace();
 }
@@ -423,7 +421,6 @@ JPanel contentWrapper = new JPanel();
 contentWrapper.setLayout(new BoxLayout(contentWrapper, BoxLayout.Y_AXIS));
 contentWrapper.setBackground(descriptionPanel.getBackground());
 contentWrapper.add(titreDesc);
-//contentWrapper.add(Box.createVerticalStrut(100));
 contentWrapper.add(descriptionText);
 
 // Ajout au panneau avec centrage vertical
@@ -442,13 +439,21 @@ reserverBtn.setForeground(Color.BLACK);
 reserverBtn.setFont(new Font("Georgia", Font.PLAIN, 12));
 reserverBtn.setPreferredSize(new Dimension(180, 50)); // Taille du bouton
 
+// Ajouter un ActionListener pour traiter la réservation
+reserverBtn.addActionListener(e -> {
+    // Afficher les informations de la chambre lors de la réservation
+    String message = "Réservation de la " + chambreActuelle.t_ch + " " + chambreActuelle.thm_ch + "\n" +
+                     "Pour " + chambreActuelle.nb_u + " personnes\n" +
+                     "Prix: " + chambreActuelle.prix + " €";
+    JOptionPane.showMessageDialog(this, message, "Confirmation de réservation", JOptionPane.INFORMATION_MESSAGE);
+});
 
 buttonPanel1.add(reserverBtn);
 
 // Ajouter le panel du bouton à la fin de descriptionPanel (en bas)
 descriptionPanel.add(buttonPanel1);
 
-// Ajouter descriptionPanel au panelDroite 
+// Ajouter descriptionPanel au panelDroite
 panelDroite.add(descriptionPanel);
 
 
