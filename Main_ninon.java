@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
-public class Main_ninon{
+public class Main{
 	public static void main(String[] args){
 		//Création des tableaux de lieux touristiques.
 		Lieu_trsm[] lieux_ky = new Lieu_trsm[10];
@@ -97,7 +97,7 @@ public class Main_ninon{
 		Pays maroc = new Pays("Projet_poo_images//Fond_maroc.png", "Projet_poo_images//Fond_tajine.png", "Projet_poo_images//hotel_maroc.png", new Color(169,121,217), new Color(111,180,241), Color.WHITE);
 		Pays senegal = new Pays("Projet_poo_images//Fond_senegal.png", "Projet_poo_images//Fond_baobab.png", "Projet_poo_images//hotel_senegal.png", new Color(215,107,100), new Color(215,107,100), Color.WHITE);
 		
-		//Création des vues.
+		//Création des vues pays.
 		Vue_pays v_j = new Vue_pays(h_k, japon);
 		Vue_pays v_i = new Vue_pays(h_r, islande);
 		Vue_pays v_f = new Vue_pays(h_p, france);
@@ -105,45 +105,60 @@ public class Main_ninon{
 		Vue_pays v_m = new Vue_pays(h_m, maroc);
 		Vue_pays v_s = new Vue_pays(h_d, senegal);
 
+		//Initialisation du tableau de chambres.
 		Chambre[] cha_r = new Chambre[4];
-
+	
 		cha_r[0] = new Chambre(105, 0, "Cyberpunk", 200, 1);
 		cha_r[1] = new Chambre(302, 2, "Samurai", 500, 3);
 		cha_r[2] = new Chambre(101, 1, "Traditionnel printannier", 100, 1);
 		cha_r[3] = new Chambre(205, 0, "Lycoris", 200, 2);
 
+		//Initialisation des dates.
 		Date arrivee = new Date(5, 6, 2016, 17, 00);
 		Date depart = new Date(12, 9, 2016, 15, 00);
 
+		//Initialisation du client.
 		Client client = new Client("Caristan", "Ninon", "xx xx xx xx xx", "x@gmail.com", "");
 
+		//Création de la vue réservation.
 		Vue_rsrv v_rsrv_client = new Vue_rsrv(h_k, client, cha_r, arrivee, depart);
 
+		//Création de la vue transition.
 		Vue_transition v_tr = new Vue_transition(h_k, cha_r, arrivee, depart, client);
 
+		//Initialisation des réservations.
 		Reservation rsrv1 = new Reservation(arrivee, depart, client, h_k, 99000, cha_r, 2);
 		Reservation rsrv2 = new Reservation(arrivee, depart, client, h_k, 99000, cha_r, 2);
 
+		//Création du tableau de réservations.
 		Reservation[] tab_r = {rsrv1, rsrv2};
 
+		//Création des séjours à partir de vues confirmée artificiellement par la fonction add_r().
 		Reservation rsrv3 = new Reservation(arrivee, depart, client, h_k, 99000, cha_r, 2);
 		Reservation rsrv4 = new Reservation(arrivee, depart, client, h_k, 99000, cha_r, 2);
 		Sejour sej1 = rsrv3.add_r();
 		Sejour sej2 = rsrv4.add_r();
 		
+		//Initialisation des consommations minibar.
 		Conso_mb conso1 = new Conso_mb("Coca cola", 3);
 		Conso_mb conso2 = new Conso_mb("Sprite", 2);
 
+		//Ajout des consommations minibar aux séjours.
 		sej1.add_conso_mb(conso1);
 		sej1.add_conso_mb(conso2);
 		sej2.add_conso_mb(conso1);
 		sej2.add_conso_mb(conso2);
 
+		//Création du tableau séjour.
 		Sejour[] tab_s = {sej1, sej2};
 		
-		Vue_gestion_rs v_gest = new Vue_gestion_rs(tab_r);
-		Vue_gestion_rs v_gest1 = new Vue_gestion_rs(tab_s);
-		Vue_gestion_rs v_gest2 = new Vue_gestion_rs(tab_r, tab_s);
+		//Création des vues gestion_rs.
+		Vue_gestion_rs v_gest = new Vue_gestion_rs(tab_r); //Réservations en attente seulement.
+		Vue_gestion_rs v_gest1 = new Vue_gestion_rs(tab_s); //Séjours seulement (réservations confirmées).
+		Vue_gestion_rs v_gest2 = new Vue_gestion_rs(tab_r, tab_s); //Les deux mélangé.
+
+		//Création de la vue dates.
+		Vue_date v_date = new Vue_date(arrivee, depart);
 
 		Dimension t_ecran = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -212,5 +227,11 @@ public class Main_ninon{
 		v_gest2.dispose();
 		v_gest2.setVisible(true);
 		v_gest2.pack();
+
+		//Création visuel vue date.
+		v_date.setPreferredSize(new Dimension((int)((double)t_ecran.getWidth()*0.3), (int)((double)t_ecran.getHeight()*0.5)));
+		v_date.dispose();
+		v_date.setVisible(true);
+		v_date.pack();
 	}
 }
