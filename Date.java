@@ -172,4 +172,14 @@ public class Date {
 		if((date.minute >=0)&&(date.minute <=9)) return "0";
 		else return "";
 	}
+
+	public int nb_jours(){
+		ArrayUtils auj = new ArrayUtils();
+		int ij = auj.indexOf(this.tab_mois, this.mois);
+
+		if(isLeapYear(this.annee)&&(ij==2)) return 29;
+		else if(!isLeapYear(this.annee)&&(ij==2)) return 28;
+		else if((ij==4)||(ij==6)||(ij==9)||(ij==11)) return 30;
+		else return 31;
+	}
 }
