@@ -52,7 +52,7 @@ public class PageAvecImageEtCarte extends JFrame {
         JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
         JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
         JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-        JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
+      //  JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
         JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
         JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familliales");
         JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
@@ -85,8 +85,8 @@ public class PageAvecImageEtCarte extends JFrame {
         bar.add(selct);
         selct.setFont(new Font("Georgia", Font.PLAIN, 12));
         bar.add(Box.createHorizontalStrut(10));
-        selct.add(rec_selct1);
-        rec_selct1.setFont(new Font("Georgia", Font.PLAIN, 12));
+       // selct.add(rec_selct1);
+        //rec_selct1.setFont(new Font("Georgia", Font.PLAIN, 12));
         selct.add(new JSeparator(SwingConstants.HORIZONTAL));
         selct.add(rec_selct2);
         rec_selct2.setFont(new Font("Georgia", Font.PLAIN, 12));
@@ -145,9 +145,14 @@ panelGauche.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 panelGauche.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
 Set<Integer> deuxImagesIndices = new HashSet<>(Arrays.asList(
-    80,81, 96, 97, 98, 99, 100, 101, 102, 103, 
-	113, 114, 107,116, 117, 118, 119,  
-	88, 89,90,91,92,93,94,95
+    80,81, 96, 97, 98, 99, 100, 101, 102, 103, // Afrique - Suites présidentielles
+   // 104, 105, 106, 107, // Paris - Suites présidentielles
+   // 108, 109, 110, 111, // Autres - Suites présidentielles (suP)
+   // 112,
+ 113, 114, 107,
+//115, // Kyoto - Suites (pas forcément présidentielles)
+    116, 117, 118, 119,  // Reykjavik - Suites (pas forcément présidentielles)
+   88, 89,90,91,92,93,94,95
 ));
 
 if (deuxImagesIndices.contains(index)) {
@@ -223,8 +228,30 @@ if (deuxImagesIndices.contains(index)) {
             break;
 
 
+	//case 92:
+       //     temp1 = new ImageIcon(new ImageIcon("suite_pres_louvres_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+       //     temp2 = new ImageIcon(new ImageIcon("suite_pres_louvres_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+      //      break;
+     //   case 93:
+      //      temp1 = new ImageIcon(new ImageIcon("suite_pres_luxe_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+      //      temp2 = new ImageIcon(new ImageIcon("suite_pres_luxe_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+      //      break;
+        //case 94:
+          //  temp1 = new ImageIcon(new ImageIcon("suite_pres_traditionnelfrancais_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+            //temp2 = new ImageIcon(new ImageIcon("suite_pres_traditionnelfrancais_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+      //      break;
+	// case 95:
+          //  temp1 = new ImageIcon(new ImageIcon("suite_pres_elysee_paris.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+         //   temp2 = new ImageIcon(new ImageIcon("suite_pres_elysee_paris_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+           // break;
 
 
+
+
+      //  case 112:
+       //     temp1 = new ImageIcon(new ImageIcon("Luxe_Kyoto_Suitep.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+       //     temp2 = new ImageIcon(new ImageIcon("Luxe_Kyoto_Suitep_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+        //    break;
         case 113:
             temp1 = new ImageIcon(new ImageIcon("Sushi_Kyoto_Suitep_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             temp2 = new ImageIcon(new ImageIcon("Sushi_Kyoto_Suitep.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
@@ -233,7 +260,10 @@ if (deuxImagesIndices.contains(index)) {
             temp1 = new ImageIcon(new ImageIcon("Moderne_Kyoto_Suitep_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             temp2 = new ImageIcon(new ImageIcon("Moderne_Kyoto_Suitep.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
             break;
-
+	// case 115:
+          //  temp1 = new ImageIcon(new ImageIcon("Hanabi_Kyoto_Suitep_4.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+       //     temp2 = new ImageIcon(new ImageIcon("Hanabi_Kyoto_Suitep_4_1.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
+          //  break;
 
 	case 92:
             temp1 = new ImageIcon(new ImageIcon("Alcool_Reykjavik_Suite.png").getImage().getScaledInstance(700, 600, Image.SCALE_SMOOTH));
@@ -273,6 +303,7 @@ if (deuxImagesIndices.contains(index)) {
             return;
     }
 
+    // Utiliser ImageIcon pour les images
     final ImageIcon image1 = temp1;
     final ImageIcon image2 = temp2;
 
@@ -539,19 +570,33 @@ basGlobal.add(servicesPanel, BorderLayout.CENTER);
 
         basGlobal.add(mt_legl, BorderLayout.SOUTH);
 
-        //CONTENT
-        JPanel contentPanel = new JPanel(new BorderLayout());
-        contentPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        contentPanel.add(splitPane, BorderLayout.CENTER);
-        contentPanel.add(basGlobal, BorderLayout.SOUTH);
+       // Vérifier le layout de contentPanel et s'assurer qu'il est bien centré.
+JPanel contentPanel = new JPanel(new BorderLayout());
+contentPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+contentPanel.add(splitPane, BorderLayout.CENTER);
+contentPanel.add(basGlobal, BorderLayout.SOUTH);
 
-        JScrollPane scrollPane = new JScrollPane(contentPanel);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setPreferredSize(new Dimension(1350, 400));
-        scrollPane.getVerticalScrollBar().setUnitIncrement(12);
 
-        this.setContentPane(scrollPane);
+UIManager.put("ScrollBar.width", 0); 
+
+	JScrollPane scrollPane = new JScrollPane(contentPanel);
+	scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	scrollPane.setPreferredSize(new Dimension(1350,768));
+	scrollPane.getVerticalScrollBar().setUnitIncrement(12);
+
+	this.setContentPane(scrollPane);
+
+
+
+
+       // JScrollPane scrollPane = new JScrollPane(contentPanel);
+       // scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+       // scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+       // scrollPane.setPreferredSize(new Dimension(1350, 400));
+        //scrollPane.getVerticalScrollBar().setUnitIncrement(12);
+
+//        this.setContentPane(scrollPane);
         this.setLocationRelativeTo(null);
         this.pack();
         this.setVisible(true);
