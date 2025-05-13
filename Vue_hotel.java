@@ -6,24 +6,28 @@ import javax.swing.border.Border;
 import java.awt.geom.RoundRectangle2D;
 import java.lang.Object;
 import java.awt.geom.RectangularShape;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Vue_hotel extends JFrame {
 	Hotel mod;
+	Hotel_model ht;
 	JLabel lab;
 	JButton butt;
 
 	//Composants de la barre menu
 	JMenuBar bar = new JMenuBar();
+	JLabel titre;
 	JMenu dest = new JMenu("Destinations");
 	JMenu selct = new JMenu("Nos sélections");
 	JMenu sav = new JMenu("En savoir plus");
+	JMenuItem sav_i = new JMenuItem("Questions fréquentes/règlement");
 	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
 	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
 	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
-	JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
-	JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familliales");
-	JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres familliales");
+	JMenuItem rec_selct2 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct3 = new JMenuItem("Nos suites luxueuses");
 	
 	//Panel construction de la page
 	JPanel entete = new JPanel();
@@ -35,18 +39,21 @@ public class Vue_hotel extends JFrame {
 	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	int largeur = (int)dim.getWidth();
 	int hauteur = (int)dim.getHeight();
+	public void refreshConnectionStatus() {
+        // Met à jour le bouton de connexion avec le statut actuel
+        SessionUtil.updateConnectionStatus(butt);
+    }
 	
 	
-public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] type_ch, String[] theme_ch, Color Color_background, String[] theme_fil ){
+public Vue_hotel(Hotel md, Hotel_model hotel){
 	mod = md;
-	lab = new JLabel();
-	this.getContentPane().add(lab);
+	ht = hotel;
 
 	//insertion du logo + composants de la barre de menu
 	ImageIcon icon = new ImageIcon("images//icone_site.png"); 
 	Image image = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 	JLabel iconLabel = new JLabel(new ImageIcon(image));
-	JLabel titre = new JLabel("RoomBloom");
+	titre = new JLabel("RoomBloom");
 	//p_vue_prcp controleur = new p_vue_prcp(this, mod);
 	//p_vue_prcp.rendreJLabelCliquable(titre, controleur);
 	titre.setForeground(new Color(0, 0, 0));
@@ -54,6 +61,13 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 	butt = new JButton("Me connecter/ M'inscrire");
 	butt.setBackground(new Color(245,245,245));
 	butt.setFocusPainted(false);
+	SessionUtil.updateConnectionStatus(butt);
+    this.addWindowListener(new WindowAdapter() {
+        @Override
+        public void windowActivated(WindowEvent e) {
+        refreshConnectionStatus();
+        }
+    });
 	
 	JPanel separator = new JPanel();
 	separator.setPreferredSize(new Dimension(2, 40));
@@ -73,8 +87,6 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 	bar.add(dest);
 	dest.setFont(new Font("Georgia", Font.PLAIN, 12));
 	dest.add(rec_dest1);
-	//p_vue_asie asieController = new p_vue_asie(this, mod);
-	//rec_dest1.addActionListener(asieController);
 	rec_dest1.setFont(new Font("Georgia", Font.PLAIN, 12));
 	dest.add(new JSeparator(SwingConstants.HORIZONTAL));
 	dest.add(rec_dest2);
@@ -96,11 +108,10 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 	selct.add(rec_selct3);
 	rec_selct3.setFont(new Font("Georgia", Font.PLAIN, 12));
 	selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-	selct.add(rec_selct4);
-	rec_selct4.setFont(new Font("Georgia", Font.PLAIN, 12));
 
 	bar.add(sav);
 	sav.setFont(new Font("Georgia", Font.PLAIN, 12));
+	sav.add(sav_i);
 	bar.add(Box.createVerticalStrut(0));
 	bar.add(butt);
 	butt.setFont(new Font("Georgia",Font.PLAIN,12));
@@ -108,7 +119,7 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 	bar.setPreferredSize(new Dimension(90, 91));
 	
 	//création entete de la page 
-	entete = createImagePanel(photo_entete, 1350, 250, mod.getNom(), 60, Color.WHITE);
+	entete = createImagePanel(hotel.photo_entete, 1350, 250, mod.getNom(), 60, Color.WHITE);
 	entete.setPreferredSize(new Dimension(1350, 200));	
 	
 	JPanel main_centre = new JPanel();
@@ -149,16 +160,16 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 	d_scrollPane.getVerticalScrollBar().setUnitIncrement(12);
 	d_scrollPane.setPreferredSize(new Dimension(800,1000));
 	UIManager.put("ScrollBar.width", 12); 
-	deroul.setBackground(Color_background);
+	deroul.setBackground(hotel.Color_background);
 	JPanel Main_chambre = new JPanel();
 	Main_chambre.setLayout(new BoxLayout(Main_chambre, BoxLayout.Y_AXIS));
 	Main_chambre.setBorder(new EmptyBorder(25, 15, 0, 25));		
-	Main_chambre.setBackground(Color_background);
+	Main_chambre.setBackground(hotel.Color_background);
 
 	// Création des tableaux pour le filtre
-	String[] categories_ch = new String[photo_hotel.length];	
-	for (int i = 0; i < photo_hotel.length; i++) {
-		categories_ch[i] = type_ch[i]; // Supposant que type_ch contient la catégorie
+	String[] categories_ch = new String[hotel.photo_hotel.length];	
+	for (int i = 0; i < hotel.photo_hotel.length; i++) {
+		categories_ch[i] = hotel.type_ch[i]; 
 	}
 
 	// Préparer les checkboxes pour le filtrage
@@ -169,10 +180,10 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 		Main_chambre,          // Le panel qui contiendra les chambres
 		checkboxesThemes,      // Les checkbox pour les thèmes
 		combinaisons,          // Le combobox des catégories
-		photo_hotel,           // Les noms des images
+		hotel.photo_hotel,           // Les noms des images
 		categories_ch,         // Les catégories des chambres
-		theme_ch, 			  //themes précis
-		theme_fil             // Les thèmes des chambres filtrée
+		hotel.theme_ch, 			  //themes précis
+		hotel.theme_fil             // Les thèmes des chambres filtrée
 	);
 
 
@@ -186,7 +197,7 @@ public Vue_hotel(Hotel md, String photo_entete, String[] photo_hotel, String[] t
 
 	//création des mentions bas de pages 
 	mt_legl.setLayout(new GridLayout(4,4));
-	ImageIcon icon_mt = new ImageIcon("C://Users//ameyl//Desktop//POO projet//images//icone_site.png"); 
+	ImageIcon icon_mt = new ImageIcon("images//icone_site.png"); 
 	Image image_mt = icon_mt.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 	JLabel iconLabel_mt = new JLabel(new ImageIcon(image_mt));
 	JLabel texte_ml_1 = new JLabel("RoomBloom");
@@ -287,4 +298,31 @@ class RoundBorder implements Border{
         g.drawRoundRect(x, y, width-1, height-1, r, r);
 	}
 }
+	public JLabel gettitre(){
+		return titre;
+	}
+	public JMenuItem getRecDest1() {
+		return rec_dest1;
+	}
+	public JMenuItem getRecDest2() {
+		return rec_dest2;
+	}
+	public JMenuItem getRecDest3() {
+		return rec_dest3;
+	}
+	public JButton getButt() {
+		return butt;
+	}
+	public JMenuItem getrec_selct1() {
+		return rec_selct1;
+	}
+	public JMenuItem getrec_selct2() {
+		return rec_selct2;
+	}
+	public JMenuItem getrec_selct3() {
+		return rec_selct3;
+	}
+	public JMenuItem get_sacv(){
+		return sav_i;
+	}
 }

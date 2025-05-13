@@ -4,6 +4,13 @@ import java.util.stream.Stream;
 public class Main_prjt{
 	public static void main(String[]args){
 		Model_prjt m_1 = new Model_prjt ("RoomBloom");	
+		
+		//Se connecter/s'inscrire 
+		Model_connectinscr modele_ci = new Model_connectinscr();
+		SessionUtil.setModel(modele_ci);
+		Seconnecter vue_ci = new Seconnecter(modele_ci);
+		ControleurConnexionInscription Controlleur_ci = new ControleurConnexionInscription(modele_ci, vue_ci);
+		
 		//vue hotel 
 		//hotel japon
 		Lieu_trsm[] lieu_ky = new Lieu_trsm[10];
@@ -141,7 +148,7 @@ public class Main_prjt{
 		Pays ma = new Pays("images//Fond_maroc.png", "images//Fond_tajine.png", "images//hotel_maroc.png", new Color(169,121,217), new Color(111,180,241), Color.WHITE);
 		Pays thai = new Pays("images//Fond_thailande.png", "images//Fond_lanternes.png", "images//hotel_piscine_thai.jpg", new Color(162,240,233), new Color(249,222,142), Color.WHITE);
 		Pays sn = new Pays("images//Fond_senegal.png", "images//Fond_baobab.png", "images//hotel_senegal.png", new Color(215,107,100), new Color(215,107,100), Color.WHITE);
-		
+
 		//Création des vues.
 		Vue_pays v_j = new Vue_pays(hotel_japon, jap);
 		NavControlleur controlleur_jap = new NavControlleur(v_j, hotel_jap);
@@ -166,6 +173,7 @@ public class Main_prjt{
 		Vue_pays v_s = new Vue_pays(hotel_senegal, sn);
 		NavControlleur controlleur_sn = new NavControlleur(v_s, hotel_sn);
         v_s.setControlleur(controlleur_sn);
+
 		
 		//vue continent
 		String[] pays_asie = {"japon.png","thailande.png"};
@@ -245,13 +253,69 @@ public class Main_prjt{
 		Nos_selections_fa selection_solo = new Nos_selections_fa("Nos chambres solos",Chambre_simple,types_chambre_s,theme_chambre_s);
 		Nos_selections_fa selection_luxe = new Nos_selections_fa("Nos Suites luxueuses",Suite_pres,types_suite,theme_suite);
 		
-		//Se connecter/s'inscrire 
-		Model_connectinscr modele_ci = new Model_connectinscr();
-        Seconnecter vue_ci = new Seconnecter(modele_ci);
-        ControleurConnexionInscription Controlleur_ci = new ControleurConnexionInscription(modele_ci, vue_ci);
+		//page en savoir plus
+		EnSavoirPlus esp = new EnSavoirPlus(m_1);
+		
+		//page de recherche prcp
+        String[] nomsFichiers = {"Automne_Kyoto_Double.png", "Caligraphie_kyoto_Suite_2.png","CarpeKoi_Kyoto_Simple.png","Cyberpunk_Kyoto_Double.png","Dragon_Kyoto_Simple.png",
+		"Futuriste_Kyoto_Simple.png","Ghibli_Kyoto_Simple.png","Hanabi_Kyoto_Suitep_4.png","Hanami_Kyoto_Suite_1.png","Luxe_Kyoto_Suitep.png","Lycoris_Kyoto_Double.png",
+		"Minimalisme_Kyoto_Double.png","Moderne_Kyoto_Suitep_1.png","Mystique_Kyoto_Suite_1.png","Ninja_Kyoto_Double.png","Pokemon_Kyoto_Double.png","Samurai_Kyoto_Suite_2.png",
+		"Sushi_Kyoto_Suitep_1.png","Tradition_printemps_Kyoto_Simple.png","Traditionnelle_Kyoto_Simple.png","d_1t.png","s_1t.png","s_2t.png","suP_3t.png","su_1t.png","s_3t.png",
+		"d_3t.png","d_2t.png","suP_1t.png","suP_2t.png","d_5t.png","s_4t.png","d_4t.png","su_2t.png","s_5t.png","suP_4t.png","su_3t.png","d_6t.png","su_4t.png","s_6t.png",
+		"chambre_double_boheme_paris.png","chambre_simple_futuriste_paris.png","chambre_double_romantiqueparisien_paris.png","suite_pres_louvres_paris.png","suite_monnet_paris.png",
+		"suite_dior_paris.png","chambre_simple_traditionnel_paris.png","chambre_double_moderneparisien_paris.png","chambre_simple_royal_paris.png","chambre_simple_parisien_paris.png",
+		"suite_pres_traditionnelfrancais_paris.png","chambre_double_moulinrouge_paris.png","chambre_simple_moderne_paris.png","suite_rococo_paris.png","chambre_double_cabinetdecuriosite_paris.png",
+		"suite_pres_luxe_paris.png","chambre_simple_minimaliste_paris.png","suite_modernefuturiste_paris.png","suite_pres_elysee_paris.png","chambre_double_luxe_paris.png","Aurore_Reykjavik_Simple.png",
+		"Baleine_Reykjavik_Suite_1.png","Basalte_Reykjavik_Double.png","Cascade_Reykjavik_Suite_1.png","Futuriste_Reykjavik_Simple.png","Glace_futur_Reykjavik_Suitep.png","Glaciers_Reykjavik_Double.png",
+		"Igloo_Reykjavik_Simple.png","Imperial_Reykjavik_Suitep.png","Lagoon_Reykjavik_Simple.png","Luxe_Reykjavik_Suitep.png","Minimaliste_Reykjavik_Double.png","Montagnes_Reykjavik_Double.png",
+		"Marin_Reykjavik_Suite_2.png","Nature_Reykjavik_Suitep_1.png","Ours_Polaire_Reykjavik_Double.png","Traditionnel_Reykjavik_Simple.png","Viking_Reykjavik_Simple.png","Volcan_Reykjavik_Double.png",
+		"Alcool_Reykjavik_Suite.png","arabe_cham_s.png","argile_cham_d.png","atay_cham_d.png","AtlasMajestueux_suite_p1.png","babouche_cham_s.png","couscous_cham_d.png","datte_suite_n.png","flouka_cham_s.png",
+		"hamam_suite_n.png","henna_cham_d.png","jame3lefna_cham_d.png","mosquee_cham_s.png","OasisDeLuxe_suite_p1.png","olivier_suite_n.png","or_cham_s.png","reveOriental_suite_p1.png","riadModerne_suite_p1.png",
+		"souk_suite_n.png","tajine_cham_d.png","tborida_cham_s.png","barque_cham_s.png","cacao_cham_s.png","couleurs_cham_d.png","chocolat_cham_s.png","foot_cham_d.png","fruitexotic_suite_n.png","ile_suite_n.png",
+		"instrumentXalam_cham_s.png","koya_suite_n.png","LacRose_suite_p1.png","lion_suite_p1.png","maison_senegalaise_cham_d.png","mosquee_s_cham_d.png","moustiquaire_cham_d.png","ocean_cham_s.png","orange_s_cham_d.png",
+		"riz_cham_s.png","sheraton_suite_p1.png","tresse_suite_n.png","zoo_suite_p1.png"};
+                    
+        String[] categories = {"Chambre double","Suite","Chambre simple","Chambre double","Chambre Simple","Chambre simple","Chambre simple","Suite présidentielle","Suite",
+		"Suite présidentielle","Chambre double","Chambre double","Suite présidentielle","Suite","Chambre double","Chambre double","Suite","Suite présidentielle","Chambre simple",
+		"Chambre simple","Chambre double","Chambre simple","Chambre simple","Suite présidentielle","Suite","Chambre simple","Chambre double","Chambre double","Suite présidentielle",
+		"Suite présidentielle","Chambre double","Chambre simple","Chambre double","Suite","Chambre simple","Suite présidentielle","Suite","Chambre double","Suite","Chambre simple",
+		"Chambre double","Chambre simple","Chambre double","Suite présidentielle","Suite","Suite","Chambre simple","Chambre double","Chambre simple","Chambre simple","Suite présidentielle",
+		"Chambre double","Chambre simple","Suite","Chambre double","Suite présidentielle","Chambre simple","Suite","Suite présidentielle","Chambre double","Chambre simple","Suite","Chambre double",
+		"Suite","Chambre simple","Suite présidentielle","Chambre double","Chambre simple","Suite présidentielle","Chambre simple","Suite présidentielle","Chambre double","Chambre double","Suite",
+		"Suite présidentielle","Chambre double","Chambre simple","Chambre simple","Chambre double","Suite","Chambre simple","Chambre double","Chambre double","Suite présidentielle","Chambre simple",
+		"Chambre double","Suite","Chambre simple","Suite","Chambre double","Chambre double","Chambre simple","Suite présidentielle","Suite","Chambre simple","Suite présidentielle","Suite présidentielle",
+		"Suite","Chambre double","Chambre simple","Chambre simple","Chambre simple","Chambre double","Chambre simple","Chambre double","Suite","Suite","Chambre simple","Suite","Suite présidentielle",
+		"Suite présidentielle","Chambre double","Chambre double","Chambre double","Chambre simple","Chambre double","Chambre simple","Suite présidentielle","Suite","Suite présidentielle"};
+                    
+        String[] themes_ch = {"sur le thème de l'automne","sur le thème de la caligraphie japonaise","sur le thème de la carpekoi","sur le thème de Cyberpunk","sur le thème des dragons",
+		"futuriste","sur le thème de Ghibli","sur le thèmes des hanabi","sur le thèmes des hanabi","de luxe","sur le thème du Lycoris japonais","minimaliste","moderne","mystique",
+		"sur le thème des ninja","sur le thème de pokémon","sur le thème des samouraï","sur le thème des sushis","printanière","traditionnelle","traditionnel","traditionnel",
+		"sur le thème de Wan Makha Bucha","Royal","Traditionnel","sur le thème Wan Vaisakh Bucha","sur le thème des rues thailandaises","sur le thème des éléphants",
+		"sur le thème des orchidées","dorée à l'Or pur","sur le thème Makha Bucha","sur le thème China town","sur le thème de Bo sang","sur le thème du festival des lumières",
+		"sur le thème des tigres","du nouvelle an Chinois","sur le thème de la pleine lune","sur le thème de Phi Ta Khon","sur le thème de Lopburi","sur le thème de la fleur de lotus",
+		"bohème","futuriste","romantique","sur le thème du Louvres","sur le thème de Monnet","sur le thème de Dior","traditionnel","moderne","royal","parisien","traditionnel","sur le thème du moulin rouge",
+		"moderne","rococo","sur le thème cabinet de curiosité","de luxe","minimaliste","moderne/futuriste","sur le thème de l'élysée","de luxe","sur le thème des aurores boréales","sur le thème des baleines",
+		"basalte","sur le thème des cascades","futuriste","sur le thème de la glace","sur le thème des glaciers","sur le thème des igloo","impérial","sur le thème des lagoon","de luxe","minimaliste",
+		"sur le thème des montagnes","sur le thème marin","sur le thème des animaux","sur le thème des ours polaires","traditionnel","sur le thème des vikings","sur le thème des  volcans","sur le thème elixirs",
+		"Andalouse","Ocre","sur le thème du Atay","sur le thème des lions","sur le thème des babouches","berbère","sur le thème des dattes","sur le thème des flouka","sur le thème du hammam","sur le thème du henné",
+		"Jemaa el-Fna","Minaret","Oasis de luxe","sur le thème des oliviers","Zest","rêve oriental","riad moderne","sur le thème des épices","sur le thème du tajine","Sultane","sur le thème des barques","sur le thème cacao",
+		"coloré","chocolaté","sur le thème du football","sur le thème des fruits exotiques","sur le thème des îles","sur le thèmes des Xalam","koya","lac rose","sur le thèmes des lions","sur le thèmes des maisons sénégalaises",
+		"mosquée","sur le thème des moustiquaires","sur le thème des océan","orangé","sur le thème du riz","sheraton","sur le thème des tresse","sur le thème du zoo"};
+                    
+        String[] themes_fil = {"Culture","Culture","Culture","Aimer des touristes","Aimer des touristes","Moderne","Aimer des touristes","Culture","Luxe","Luxe","Culture","Moderne","Moderne",
+		"Culture","Culture","Aimer des touristes","Culture","Aimer des touristes","Aimer des touristes","Culture","Culture","Culture","Culture","Luxe","Culture","Aimer des touristes",
+		"Aimer des touristes","Culture","Aimer des touristes","Luxe","Culture","Luxe","Culture","Moderne","Moderne","Culture","Culture","Moderne","Aimer des touristes","moderne","Aimer des touristes",
+		"Culture","Culture","Culture","Culture","Moderne","Luxe","Culture","Luxe","Culture","Moderne","Aimer des touristes","Aimer des touristes","Luxe","Moderne","Moderne","Luxe","Luxe","Aimer des touristes",
+		"Aimer des touristes","Culture","Aimer des touristes","Moderne","Culture","Culture","Culture","Luxe","Luxe","Luxe","Moderne","Culture","Culture","Aimer des touristes","Aimer des touristes","Culture",
+		"Culture","Culture","Culture","Moderne","Culture","Aimer des touristes","Aimer des touristes","Culture","Culture","Luxe","Culture","Luxe","Luxe","Culture","Aimer par les touristes","Luxe","Luxe","Moderne",
+		"Luxe","Moderne","Moderne","Aimer des touristes","Aimer des touristes","Culture","Culture","Aimer des tourites","Aimer des touristes","Luxe","Aimer des touristes","Culture","Luxe","Luxe","Moderne","Culture",
+		"Culture","Luxe","Culture","Moderne","Aimer des touristes","Luxe","Culture","Moderne"};		
+		
+		Vue_Resultats_Recherche vueResultat = new Vue_Resultats_Recherche("", nomsFichiers, categories, themes_ch, themes_fil, m_1);
+
 		
 		//vue principale/acceuil 
-		Vue_prcp vue_principale = new Vue_prcp(m_1,Continent_Asie,Continent_Europe,Continent_Afrique);
+		Vue_prcp vue_principale = new Vue_prcp(m_1,vueResultat);
 		
 		
 		//controlleurs de changement de vue (barre de menu)
@@ -279,6 +343,11 @@ public class Main_prjt{
 		NavControlleur controlleur_connection_dest1 = new NavControlleur(selection_famille, vue_ci);
 		NavControlleur controlleur_connection_dest2 = new NavControlleur(selection_solo, vue_ci);
 		NavControlleur controlleur_connection_dest3 = new NavControlleur(selection_luxe, vue_ci);
+		//gestions des connections pour la page en savoir plus
+		NavControlleur controlleur_connection_esp = new NavControlleur(esp,vue_ci);
+		//gestions des connections pour la page principale 
+		NavControlleur controlleur_connection_pr = new NavControlleur(vue_principale,vue_ci);
+		
 		
 		//gestion des MenuItem pour chaque continent 
 		NavControlleur controlleur_europe_mi = new NavControlleur(Continent_Europe, Continent_Asie, Continent_Europe,Continent_Afrique);
@@ -304,6 +373,10 @@ public class Main_prjt{
 		NavControlleur controlleur_vuedest_1 = new NavControlleur(selection_famille, Continent_Asie, Continent_Europe,Continent_Afrique);
 		NavControlleur controlleur_vuedest_2 = new NavControlleur(selection_solo, Continent_Asie, Continent_Europe,Continent_Afrique);
 		NavControlleur controlleur_vuedest_3 = new NavControlleur(selection_luxe, Continent_Asie, Continent_Europe,Continent_Afrique);
+		//gestion des MenuItem pour la page en savoir plus 
+		NavControlleur controlleur_vueesp_co = new NavControlleur(esp, Continent_Asie, Continent_Europe,Continent_Afrique);
+		//gestion des MenuItem pour la page principale
+		NavControlleur controlleur_vuepr_co = new NavControlleur(vue_principale, Continent_Asie, Continent_Europe,Continent_Afrique);
 		
 		//gestion des MenusItem vers nos destinations 
 		//gestion des MenuItem pour chaque continent 
@@ -330,8 +403,42 @@ public class Main_prjt{
 		NavControlleur controlleur_vuedest_1dest = new NavControlleur(selection_famille, selection_famille, selection_solo,selection_luxe);
 		NavControlleur controlleur_vuedest_2dest = new NavControlleur(selection_solo, selection_famille, selection_solo,selection_luxe);
 		NavControlleur controlleur_vuedest_3dest = new NavControlleur(selection_luxe, selection_famille, selection_solo,selection_luxe); 
+		//gestion des MenuItem pour la page en savoir plus 
+		NavControlleur controlleur_vuedest_esp = new NavControlleur(esp, selection_famille, selection_solo,selection_luxe);
+		//gestion des MenuItem pour la page principale 
+		NavControlleur controlleur_vuedest_pr = new NavControlleur(vue_principale, selection_famille, selection_solo,selection_luxe);
 		
-		
+		//gestion du JMenuItem vers en savoir plus
+		//gestion JMenuItem pour chaque continent 
+		NavControlleur controlleur_europe_sav = new NavControlleur(Continent_Europe, esp);
+		NavControlleur controlleur_afrique_sav = new NavControlleur(Continent_Afrique, esp);
+		NavControlleur controlleur_asie_sav = new NavControlleur(Continent_Asie, esp);
+		//gestion JMenuItem pour chaque pays
+		NavControlleur controlleur_vuejapsav = new NavControlleur(v_j, esp);
+		NavControlleur controlleur_vuethaisav = new NavControlleur(v_t, esp);
+		NavControlleur controlleur_vuefrsav = new NavControlleur(v_f, esp);
+		NavControlleur controlleur_vueislsav = new NavControlleur(v_i, esp);
+		NavControlleur controlleur_vuesnsav = new NavControlleur(v_s, esp);
+		NavControlleur controlleur_vuemasav = new NavControlleur(v_m, esp);	
+		//gestion JMenuItem pour chaque hotel 
+		NavControlleur controlleur_vuejap_hsav = new NavControlleur(hotel_jap, esp);
+		NavControlleur controlleur_vuethai_hsav = new NavControlleur(hotel_thai, esp);
+		NavControlleur controlleur_vuefr_hsav = new NavControlleur(hotel_prs, esp);
+		NavControlleur controlleur_vueisl_hsav = new NavControlleur(hotel_isl, esp);
+		NavControlleur controlleur_vuesn_hsav = new NavControlleur(hotel_sn, esp);
+		NavControlleur controlleur_vuema_hsav = new NavControlleur(hotel_ma, esp);
+		//gestion JMenuItem pour la page de connectinscr
+		NavControlleur controlleur_vueco_cisav = new NavControlleur(vue_ci, esp);
+		//gestion JMenuItem pour les destinations
+		NavControlleur controlleur_vuedest_1sav = new NavControlleur(selection_famille, esp);
+		NavControlleur controlleur_vuedest_2sav = new NavControlleur(selection_solo, esp);
+		NavControlleur controlleur_vuedest_3sav = new NavControlleur(selection_luxe, esp);
+		//gestions JMenuItem pour la page en savoir plus 
+		NavControlleur controlleur_vuesav_esp = new NavControlleur(esp, esp); 
+		//gestions JMenuItem pour la page principale 
+		NavControlleur controlleur_vuesav_pr = new NavControlleur(vue_principale, esp); 
+
+
 		//controleur pour revenir a la vue principale :
 		//pays -> prcp
 		NavControlleur controlleur_vuejap_prcp = new NavControlleur(v_j,vue_principale);
@@ -357,16 +464,18 @@ public class Main_prjt{
 		NavControlleur controlleur_vuedest_prcp_1 = new NavControlleur(selection_famille, vue_principale);
 		NavControlleur controlleur_vuedest_prcp_2 = new NavControlleur(selection_solo, vue_principale);
 		NavControlleur controlleur_vuedest_prcp_3 = new NavControlleur(selection_luxe, vue_principale);
+		//esp -> prcp
+		NavControlleur controlleur_vueesp_prcp = new NavControlleur(esp, vue_principale);
+		//prcp -> prcp 
+		NavControlleur controlleur_vuepr_prcp = new NavControlleur(vue_principale, vue_principale);
+		//rech -> prcp 
+		NavControlleur controlleur_vuerech_prcp = new NavControlleur(vueResultat, vue_principale);
+
 		
 		
 		//Initialisation des pages
-		
-		//vue_principale.setVisible(true);
-		selection_famille.setVisible(true);
-		vue_ci.setVisible(true);
-		Continent_Afrique.setVisible(true);
-		hotel_ma.setVisible(true);
-		v_j.setVisible(true);
+		vue_principale.setVisible(true);
+		esp.pack();
 		selection_famille.pack();
 		selection_solo.pack();
 		selection_luxe.pack();

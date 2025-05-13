@@ -2,33 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class Vue_Resultats_Recherche extends JFrame {
     JPanel panneauChambres;
     JTextField searchField;
     String motsCles;
+	JButton titre;
     String[] nomsFichiers;
     String[] categories;
     String[] themes_ch;
     String[] themes_fil;
     Model_prjt mod;
-	JButton butt;
 	JPanel entete = new JPanel();
 	JPanel mt_legl = new JPanel();
-
-	
-	//Composants de la barre menu
-	JMenuBar bar = new JMenuBar();
-	JMenu dest = new JMenu("Destinations");
-	JMenu selct = new JMenu("Nos sélections");
-	JMenu sav = new JMenu("En savoir plus");
-	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
-	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
-	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
-	JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
-	JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familliales");
-	JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
 
 public Vue_Resultats_Recherche(String motsCles, String[] nomsFichiers, String[] categories, String[] themes_ch, String[] themes_fil, Model_prjt mod) {
     this.motsCles = motsCles;
@@ -41,72 +28,21 @@ public Vue_Resultats_Recherche(String motsCles, String[] nomsFichiers, String[] 
 	int largeur = (int)dim.getWidth();
 	int hauteur = (int)dim.getHeight();
 	
-	//insertion du logo + composants de la barre de menu
-	ImageIcon icon = new ImageIcon("images//icone_site.png"); 
-	Image image = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-	JLabel iconLabel = new JLabel(new ImageIcon(image));
-	JLabel titre = new JLabel("RoomBloom");
-	p_vue_prcp controleur = new p_vue_prcp(this, mod);
-	p_vue_prcp.rendreJLabelCliquable(titre, controleur);
-	titre.setForeground(new Color(0, 0, 0));
-	titre.setFont(new Font("Georgia", Font.ITALIC, 20));
-	butt = new JButton("Me connecter/ M'inscrire");
-	butt.setBackground(new Color(245,245,245));
-	butt.setFocusPainted(false);
+	//insertion du bouton de retour en haut de la page
+	titre = new JButton("Retour à la vue principale");
+	titre.setBackground(new Color(229,178,185));
+	titre.setForeground(Color.BLACK);
+	titre.setFont(new Font("Georgia", Font.ITALIC, 14)); 
+	titre.setPreferredSize(new Dimension(200, 30));
+	titre.setMargin(new Insets(2, 5, 2, 5));
+	titre.setFocusPainted(false);	
+	titre.setBorder(new LineBorder(Color.BLACK, 1));
 	
-	JPanel separator = new JPanel();
-	separator.setPreferredSize(new Dimension(2, 40));
-	separator.setMaximumSize(new Dimension(2, 40));
-	separator.setBackground(Color.GRAY);
-
-
-	this.setJMenuBar(bar);
-	bar.setBackground(Color.WHITE);
-	bar.add(Box.createHorizontalStrut(15));
-	bar.add(iconLabel);
-	bar.add(Box.createHorizontalStrut(10));
-	bar.add(titre);
-	bar.add(Box.createHorizontalStrut(25));
-	bar.add(separator);
-	bar.add(Box.createHorizontalStrut(25));
+	JPanel pan_haut = new JPanel(new BorderLayout());
+	pan_haut.add(titre);
+	pan_haut.add(titre, BorderLayout.WEST);
+	pan_haut.setBackground(new Color(229,178,185));
 	
-	bar.add(dest);
-	dest.setFont(new Font("Georgia", Font.PLAIN, 12));
-	dest.add(rec_dest1);
-	//p_vue_asie asieController = new p_vue_asie(this, mod);
-	//rec_dest1.addActionListener(asieController);
-	rec_dest1.setFont(new Font("Georgia", Font.PLAIN, 12));
-	dest.add(new JSeparator(SwingConstants.HORIZONTAL));
-	dest.add(rec_dest2);
-	rec_dest2.setFont(new Font("Georgia", Font.PLAIN, 12));
-	dest.add(new JSeparator(SwingConstants.HORIZONTAL));
-	dest.add(rec_dest3);
-	rec_dest3.setFont(new Font("Georgia", Font.PLAIN, 12));
-	bar.add(Box.createHorizontalStrut(10));
-	
-	bar.add(selct);
-	selct.setFont(new Font("Georgia", Font.PLAIN, 12));
-	bar.add(Box.createHorizontalStrut(10));
-	selct.add(rec_selct1);
-	rec_selct1.setFont(new Font("Georgia", Font.PLAIN, 12));
-	selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-	selct.add(rec_selct2);
-	rec_selct2.setFont(new Font("Georgia", Font.PLAIN, 12));
-	selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-	selct.add(rec_selct3);
-	rec_selct3.setFont(new Font("Georgia", Font.PLAIN, 12));
-	selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-	selct.add(rec_selct4);
-	rec_selct4.setFont(new Font("Georgia", Font.PLAIN, 12));
-
-	
-	bar.add(sav);
-	sav.setFont(new Font("Georgia", Font.PLAIN, 12));
-	bar.add(Box.createVerticalStrut(0));
-	bar.add(butt);
-	butt.setFont(new Font("Georgia",Font.PLAIN,12));
-	bar.add(Box.createHorizontalStrut(15));
-	bar.setPreferredSize(new Dimension(90, 91));
     
 	// Création du panneau principal + barre de recherche 
     JPanel mainPanel = new JPanel(new BorderLayout());
@@ -171,8 +107,6 @@ public Vue_Resultats_Recherche(String motsCles, String[] nomsFichiers, String[] 
 	JLabel texte_ml_6 = new JLabel("Où voyager ?");
 	JLabel texte_ml_7 = new JLabel("Voyager en Europe");
 	JLabel texte_ml_8 = new JLabel("Voyager en Asie");
-	//texte_ml_8.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	//texte_ml_8.addActionListener(asieController);
 	JLabel texte_ml_9 = new JLabel("Voyager en Afrique");
 	JLabel texte_ml_10 = new JLabel("Nous contacter");
 	JLabel texte_ml_11 = new JLabel("Instagram : @RoomBloom_fr");
@@ -206,6 +140,7 @@ public Vue_Resultats_Recherche(String motsCles, String[] nomsFichiers, String[] 
     // Ajout des composants à la fenêtre
 	JPanel TopContainer = new JPanel();
     TopContainer.setLayout(new BoxLayout(TopContainer, BoxLayout.Y_AXIS));
+	TopContainer.add(pan_haut);
 	TopContainer.add(entete);
 	TopContainer.add(searchPanel);
     mainPanel.add(TopContainer, BorderLayout.NORTH);
@@ -226,7 +161,12 @@ public Vue_Resultats_Recherche(String motsCles, String[] nomsFichiers, String[] 
 	this.pack();
 }
 
-private void filtrerChambres() {
+public void setMotsCles(String motsCles) {
+    this.motsCles = motsCles;
+    this.searchField.setText(motsCles);
+}
+
+public void filtrerChambres() {
     panneauChambres.removeAll();
         
     // Récupérer les mots clés
@@ -438,4 +378,7 @@ private JPanel createImagePanel(String imagePath, int width, int height, String 
     panel.add(imageLabel, BorderLayout.CENTER);
     return panel;
 }
+public JButton gettitre(){
+		return titre;
+	}
 }

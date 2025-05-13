@@ -1,20 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Continent extends JFrame {
     Model_prjt mod;
 	Continent_model ct;
     JLabel lab;
     JButton butt;
-	private JLabel nom_p1;
-	private JLabel nom_p2;
+	JLabel nom_p1;
+	JLabel nom_p2;
 
     JMenuBar bar = new JMenuBar(); 
 	JLabel titre;
     JMenu dest = new JMenu("Destinations");
     JMenu selct = new JMenu("Nos sélections");
     JMenu sav = new JMenu("En savoir plus");
+	JMenuItem sav_i = new JMenuItem("Questions fréquentes/règlement");
 	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
 	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
 	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
@@ -27,6 +30,11 @@ public class Continent extends JFrame {
 	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	int largeur = (int)dim.getWidth();
 	int hauteur = (int)dim.getHeight();
+	
+	public void refreshConnectionStatus() {
+        // Met à jour le bouton de connexion avec le statut actuel
+        SessionUtil.updateConnectionStatus(butt);
+    }
 
 public Continent(Model_prjt md,Continent_model continent) {
     super("Voyagez en Asie");
@@ -49,6 +57,13 @@ public Continent(Model_prjt md,Continent_model continent) {
 	butt = new JButton("Me connecter/ M'inscrire");
 	butt.setBackground(new Color(245,245,245));
 	butt.setFocusPainted(false);
+	SessionUtil.updateConnectionStatus(butt);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowActivated(WindowEvent e) {
+                refreshConnectionStatus();
+            }
+        });
 	
 	JPanel separator = new JPanel();
 	separator.setPreferredSize(new Dimension(2, 40));
@@ -94,6 +109,7 @@ public Continent(Model_prjt md,Continent_model continent) {
 	
 	bar.add(sav);
 	sav.setFont(new Font("Georgia", Font.PLAIN, 12));
+	sav.add(sav_i);
 	bar.add(Box.createVerticalStrut(0));
 	bar.add(butt);
 	butt.setFont(new Font("Georgia",Font.PLAIN,12));
@@ -254,5 +270,8 @@ private JPanel createImagePanel(String imagePath, int width, int height, String 
 	}
 	public JMenuItem getrec_selct3() {
 		return rec_selct3;
+	}
+	public JMenuItem get_sacv(){
+		return sav_i;
 	}
 }

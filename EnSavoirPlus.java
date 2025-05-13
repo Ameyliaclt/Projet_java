@@ -1,15 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class EnSavoirPlus extends JFrame {
 
-Model_prc mod;
+	Model_prjt mod;
     private JButton butt;
     private JLabel lab;
     private JLabel imageLabel;
     private JLabel titre;
+	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
+    JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
+    JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
+	JMenuItem rec_selct1 = new JMenuItem("Nos Chambres familliales");
+	JMenuItem rec_selct2 = new JMenuItem("Nos Chambres solo pour vous");
+	JMenuItem rec_selct3 = new JMenuItem("Nos suites luxueuses");
     
-
+	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	int largeur = (int)dim.getWidth();
+	int hauteur = (int)dim.getHeight();
 	
     JPanel pBottom = new JPanel();
 
@@ -17,15 +27,21 @@ Model_prc mod;
     JMenu dest = new JMenu("Destinations");
     JMenu selct = new JMenu("Nos sélections");
     JMenu sav = new JMenu("En savoir plus");
+	JMenuItem sav_i = new JMenuItem("Questions fréquentes/règlement");
+	public void refreshConnectionStatus() {
+        // Met à jour le bouton de connexion avec le statut actuel
+        SessionUtil.updateConnectionStatus(butt);
+    }
 
-    public EnSavoirPlus(Model_prc md) {
+    public EnSavoirPlus(Model_prjt md) {
         super("En savoir plus");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.mod = md;
         lab = new JLabel();
+		Dimension t_scr = Toolkit.getDefaultToolkit().getScreenSize();
 // Barre de menu
-        ImageIcon icon = new ImageIcon("icone_site.png");
+        ImageIcon icon = new ImageIcon("images//icone_site.png");
         Image image = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         JLabel iconLabel = new JLabel(new ImageIcon(image));
         titre = new JLabel("RoomBloom");
@@ -34,19 +50,18 @@ Model_prc mod;
         butt = new JButton("Me connecter/ M'inscrire");
         butt.setBackground(new Color(245, 245, 245));
         butt.setFocusPainted(false);
+		SessionUtil.updateConnectionStatus(butt);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowActivated(WindowEvent e) {
+                refreshConnectionStatus();
+            }
+        });
 
         JPanel sepPanel = new JPanel();
         sepPanel.setPreferredSize(new Dimension(2, 40));
         sepPanel.setMaximumSize(new Dimension(2, 40));
         sepPanel.setBackground(Color.GRAY);
-
-        JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
-        JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
-        JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
-       // JMenuItem rec_selct1 = new JMenuItem("Nos Chambres insolites");
-        JMenuItem rec_selct2 = new JMenuItem("Nos suites luxueuses");
-        JMenuItem rec_selct3 = new JMenuItem("Nos Chambres familliales");
-        JMenuItem rec_selct4 = new JMenuItem("Nos Chambres solo pour vous");
 
         this.setJMenuBar(bar);
         bar.setBackground(Color.WHITE);
@@ -68,16 +83,15 @@ Model_prc mod;
 
         bar.add(selct);
         selct.setFont(new Font("Georgia", Font.PLAIN, 12));
-       // selct.add(rec_selct1);
-        //selct.add(new JSeparator(SwingConstants.HORIZONTAL));
+		selct.add(rec_selct1);
+		selct.add(new JSeparator(SwingConstants.HORIZONTAL));
         selct.add(rec_selct2);
         selct.add(new JSeparator(SwingConstants.HORIZONTAL));
         selct.add(rec_selct3);
-        selct.add(new JSeparator(SwingConstants.HORIZONTAL));
-        selct.add(rec_selct4);
 
         bar.add(sav);
         sav.setFont(new Font("Georgia", Font.PLAIN, 12));
+		sav.add(sav_i);
         bar.add(Box.createVerticalStrut(0));
         bar.add(butt);
         butt.setFont(new Font("Georgia", Font.PLAIN, 12));
@@ -223,14 +237,12 @@ Model_prc mod;
         emailLabel.setFont(new Font("Segoe UI Emoji", Font.BOLD, 16));
         emailLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(emailLabel);
-	emailLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 70, 0));
+		emailLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 70, 0));
 
-        add(new JScrollPane(mainPanel));
-        setVisible(true);
 // MENTIONS LÉGALES
         JPanel mt_legl = new JPanel(new GridLayout(4, 4));
         mt_legl.setBackground(Color.LIGHT_GRAY);
-        ImageIcon icon_mt = new ImageIcon("icone_site.png");
+        ImageIcon icon_mt = new ImageIcon("images//icone_site.png");
         Image image_mt = icon_mt.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         JLabel iconLabel_mt = new JLabel(new ImageIcon(image_mt));
 
@@ -256,8 +268,39 @@ Model_prc mod;
         mt_legl.add(new JLabel("X : @RoomBloom_fr"));
 
        mainPanel.add(mt_legl);
+	   JScrollPane scrollPane = new JScrollPane(mainPanel);
+	   scrollPane.getVerticalScrollBar().setUnitIncrement(12); 
+	scrollPane.setPreferredSize(new Dimension((int)((double)t_scr.getWidth()), (int)((double)t_scr.getHeight())));
+	this.getContentPane().add(scrollPane);
+
 
     }
-
- 
+	public JLabel gettitre(){
+		return titre;
+	}
+	
+	public JMenuItem getRecDest1() {
+		return rec_dest1;
+	}
+	public JMenuItem getRecDest2() {
+		return rec_dest2;
+	}
+	public JMenuItem getRecDest3() {
+		return rec_dest3;
+	}
+	public JButton getButt() {
+		return butt;
+	}
+	public JMenuItem getrec_selct1() {
+		return rec_selct1;
+	}
+	public JMenuItem getrec_selct2() {
+		return rec_selct2;
+	}
+	public JMenuItem getrec_selct3() {
+		return rec_selct3;
+	}
+	public JMenuItem get_sacv(){
+		return sav_i;
+	}
 }

@@ -1,27 +1,46 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Model_connectinscr {
-    // Stockage des utilisateurs par email
-    private HashMap<String, Client> users = new HashMap<>();
-
+    private ArrayList<Client> clients;
+    private Client currentUser;
+    
     public Model_connectinscr() {
-        users.put("alice@example.com", new Client("Durand", "Alice", "0600000000", "alice@example.com", "1234"));
+        clients = new ArrayList<>();
+        // Vous pourriez ajouter des utilisateurs de test ici
     }
-
-	//Connect
+    
     public boolean checkLogin(String email, String password) {
-        if (users.containsKey(email)) {
-            return users.get(email).getPassword().equals(password);
+        for (Client client : clients) {
+            if (client.getEmail().equals(email) && client.getPassword().equals(password)) {
+                client.setConnected(true);  // Marquer le client comme connecté
+                currentUser = client;
+                return true;
+            }
         }
         return false;
     }
-
-	//inscription
+    
     public boolean registerUser(String nom, String prenom, String phone, String email, String password) {
-        if (users.containsKey(email)) {
-            return false; // L'email est déjà utilisé
+        // Vérifier si l'email existe déjà
+        for (Client client : clients) {
+            if (client.getEmail().equals(email)) {
+                return false;
+            }
         }
-        users.put(email, new Client(nom, prenom, phone, email, password));
+        
+        // Créer un nouveau client
+        Client newClient = new Client(nom, prenom, phone, email, password);
+        clients.add(newClient);
+        currentUser = newClient;
+        newClient.setConnected(true);  // Marquer le client comme connecté
         return true;
+    }
+    
+    public boolean isUserLoggedIn() {
+        return currentUser != null && currentUser.isConnected();
+    }
+    
+    public Client getCurrentUser() {
+        return currentUser;
     }
 }

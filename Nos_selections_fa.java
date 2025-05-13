@@ -5,6 +5,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.geom.RoundRectangle2D;
 import java.lang.Object;
 import java.awt.geom.RectangularShape;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Nos_selections_fa extends JFrame {
 	Hotel mod;
@@ -23,6 +25,7 @@ public class Nos_selections_fa extends JFrame {
 	JMenu dest = new JMenu("Destinations");
 	JMenu selct = new JMenu("Nos sélections");
 	JMenu sav = new JMenu("En savoir plus");
+	JMenuItem sav_i = new JMenuItem("Questions fréquentes/règlement");
 	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
 	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
 	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
@@ -43,6 +46,10 @@ public class Nos_selections_fa extends JFrame {
 	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	int largeur = (int)dim.getWidth();
 	int hauteur = (int)dim.getHeight();
+	public void refreshConnectionStatus() {
+        // Met à jour le bouton de connexion avec le statut actuel
+        SessionUtil.updateConnectionStatus(butt);
+    }
 
 	public Nos_selections_fa(String types_recomandations, String[] nomsFichiers, String[] categories, String[] themes_ch) {
 		this.nomsFichiers = nomsFichiers;
@@ -67,6 +74,13 @@ public class Nos_selections_fa extends JFrame {
 		butt = new JButton("Me connecter/ M'inscrire");
 		butt.setBackground(new Color(245,245,245));
 		butt.setFocusPainted(false);
+		SessionUtil.updateConnectionStatus(butt);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowActivated(WindowEvent e) {
+                refreshConnectionStatus();
+            }
+        });
 
 		JPanel separator = new JPanel();
 		separator.setPreferredSize(new Dimension(2, 40));
@@ -112,6 +126,7 @@ public class Nos_selections_fa extends JFrame {
 		bar.add(sav);
 		sav.setFont(new Font("Georgia", Font.PLAIN, 12));
 		bar.add(Box.createVerticalStrut(0));
+		sav.add(sav_i);
 		bar.add(butt);
 		butt.setFont(new Font("Georgia",Font.PLAIN,12));
 		bar.add(Box.createHorizontalStrut(15));
@@ -280,5 +295,8 @@ public class Nos_selections_fa extends JFrame {
 	}
 	public JMenuItem getrec_selct3() {
 		return rec_selct3;
+	}
+	public JMenuItem get_sacv(){
+		return sav_i;
 	}
 }

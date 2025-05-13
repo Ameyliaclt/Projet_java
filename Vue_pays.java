@@ -13,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.geom.RoundRectangle2D;
 import java.lang.Object;
 import java.awt.geom.RectangularShape;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Vue_pays extends JFrame{
 	JPanel main = new JPanel(); //Panel principal (scroll).
@@ -53,6 +55,7 @@ public class Vue_pays extends JFrame{
 	JMenu dest = new JMenu("Destinations");
 	JMenu selct = new JMenu("Nos sélections");
 	JMenu sav = new JMenu("En savoir plus");
+	JMenuItem sav_i = new JMenuItem("Questions fréquentes/règlement");
 	JMenuItem rec_dest1 = new JMenuItem("Voyagez en Asie");
 	JMenuItem rec_dest2 = new JMenuItem("Voyagez en Europe");
 	JMenuItem rec_dest3 = new JMenuItem("Voyagez en Afrique");
@@ -62,15 +65,22 @@ public class Vue_pays extends JFrame{
 	JMenuItem rec_selct3 = new JMenuItem("Nos suites luxueuses");
 
 	JPanel mt_legl = new JPanel();
+	Model_connectinscr model;
 
 	Hotel ho;
 	Pays pa;
+	
+	public void refreshConnectionStatus() {
+        // Met à jour le bouton de connexion avec le statut actuel
+        SessionUtil.updateConnectionStatus(butt);
+    }
 
 	public Vue_pays(Hotel h1, Pays p){
 		//Grand titre de la fenêtre.
 		super(h1.pays_h);
 		ho = h1;
 		pa = p;
+		this.model = model;
 
 		//Stockage des dimensions de l'écran.
 		Dimension t_scr = Toolkit.getDefaultToolkit().getScreenSize();
@@ -85,9 +95,17 @@ public class Vue_pays extends JFrame{
 		titre.setForeground(new Color(0,0,0));
 		titre.setFont(new Font("Georgia", Font.ITALIC, 20));
 
-		butt = new JButton("Me connecter/ M'inscrire");
+		butt = new JButton();
 		butt.setBackground(new Color(245,245,245));
 		butt.setFocusPainted(false);
+		SessionUtil.updateConnectionStatus(butt);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowActivated(WindowEvent e) {
+                refreshConnectionStatus();
+            }
+        });
+		
 
 		JPanel separator = new JPanel();
 		separator.setPreferredSize(new Dimension(2,40));
@@ -134,6 +152,7 @@ public class Vue_pays extends JFrame{
 		
 		bar.add(sav);
 		sav.setFont(new Font("Georgia", Font.PLAIN, 12));
+		sav.add(sav_i);
 
 		bar.add(Box.createVerticalStrut(0));
 		bar.add(butt);
@@ -359,5 +378,8 @@ public class Vue_pays extends JFrame{
 	}
 	public JMenuItem getrec_selct3() {
 		return rec_selct3;
+	}
+	public JMenuItem get_sacv(){
+		return sav_i;
 	}
 }
