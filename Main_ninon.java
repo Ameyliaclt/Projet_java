@@ -142,6 +142,13 @@ public class Main{
 		//Initialisation des consommations minibar.
 		Conso_mb conso1 = new Conso_mb("Coca cola", 3);
 		Conso_mb conso2 = new Conso_mb("Sprite", 2);
+		Conso_mb conso3 = new Conso_mb("Bière", 4);
+		Conso_mb conso4 = new Conso_mb("Vin", 10);
+		Conso_mb conso5 = new Conso_mb("Champagne", 20);
+		Conso_mb conso6 = new Conso_mb("Snacks", 5);
+
+		//Création du tableau de choix pour l'ajout de consommations minibar.
+		Conso_mb[] choix = {conso1, conso2, conso3, conso4, conso5, conso6};
 
 		//Ajout des consommations minibar aux séjours.
 		sej1.add_conso_mb(conso1);
@@ -159,6 +166,8 @@ public class Main{
 
 		//Création de la vue dates.
 		Vue_date v_date = new Vue_date(arrivee, depart);
+
+		Vue_conso v_conso = new Vue_conso(choix);
 
 		Dimension t_ecran = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -233,5 +242,11 @@ public class Main{
 		v_date.dispose();
 		v_date.setVisible(true);
 		v_date.pack();
+
+		//Création visuel vue ajout de consommations minibar (vue conso).
+		v_conso.setPreferredSize(new Dimension((int)((double)t_ecran.getWidth()*0.316), (int)((double)t_ecran.getHeight()*0.25)));
+		v_conso.dispose();
+		v_conso.setVisible(true);
+		v_conso.pack();
 	}
 }
