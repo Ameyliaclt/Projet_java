@@ -8,4 +8,4 @@ Développement d’un site de réservation permettant à l’utilisateur de :
 
 Technologies : Java, Swing (interface graphique).
 
-Projet académique réalisé en Licence 2 d’informatique, en collaboration avec deux autres étudiants (Ninon Caristan et Ikram Touijrate).
+Projet académique réalisé en Licence 2 d’informatique par Ninon CARISTAN, Ameylia CLEMENT et Ikram TOUIJRATE
