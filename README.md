@@ -1,5 +1,5 @@
-# Projet-java
-## Projet Java – Application de gestion hôtelière
+# Projet-java : Application de gestion hôtelière
+## Contenu du projet
 Développement d’un site de réservation permettant à l’utilisateur de :
 
 -Consulter les chambres disponibles dans différents hôtels, classés par pays ;
